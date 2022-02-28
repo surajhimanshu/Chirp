@@ -7,5 +7,5 @@
 2. React Router Dom
 3. React Redux
 4. Redux
-5. Json Server
-6. Axios
+5. Axios
+6. Fake REST API for data on heroku https://chirp-database.herokuapp.com/
