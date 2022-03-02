@@ -1,0 +1,102 @@
+.menu {
+    width: 276px;
+    padding: 1px 12px;
+    box-sizing: border-box;
+    border-right: 1px solid #38444E;
+}
+
+.bird {
+    height: 35px;
+    width: 35px;
+    padding: 8.5px;
+    border-radius: 50%;
+    color: white;
+    transition-duration: .2s;
+}
+
+.bird:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+nav>li {
+    list-style: none;
+    height: 58.25px;
+    padding: 4px 0px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+i {
+    font-size: 28px;
+    position: relative;
+    top: 8px;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.menuOption {
+    width: fit-content;
+    padding: 0px 12px 6px;
+    border-radius: 30px;
+    line-height: 42px;
+    letter-spacing: .5px;
+    transition-duration: .2s;
+}
+
+nav>li:hover>.more, nav>li:hover>.link>.menuOption {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.tweetButton {
+    background-color: rgb(29, 155, 240);
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    color: inherit;
+    font-size: 18px;
+    margin-top: 20px;
+    height: 52px;
+    width: 226px;
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+.tweetButton:hover {
+    background-color: rgb(26, 140, 216);
+}
+
+.more {
+    padding: 0px 12px 6px;
+    width: fit-content;
+    border-radius: 30px;
+    letter-spacing: .5px;
+    line-height: 42px;
+    transition-duration: .2s;
+}
+
+.more>i {
+    font-size: 24px;
+    top: 6px;
+}
+
+.profiles {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 12px;
+    margin-top: 265px;
+    height: 64px;
+    border-radius: 34px;
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+.profiles:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.selected {
+    font-weight: bold;
+}
