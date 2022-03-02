@@ -22,72 +22,75 @@ import Profiles from "./Profiles";
 const Menu = () => {
   const navigate = useNavigate();
   return (
-    <div className={Styles.menu}>
-      <Link to="/home">
-        <AiOutlineTwitter className={Styles.bird} />
-      </Link>
-      <nav>
-        <li>
-          <MenuOption
-            name="Home"
-            icon={<BiHomeCircle />}
-            activeIcon={<RiHome7Fill />}
-          />
-        </li>
-        <li>
-          <MenuOption
-            name="Explore"
-            icon={<RiHashtag />}
-            activeIcon={<FaHashtag />}
-          />
-        </li>
-        <li>
-          <MenuOption
-            name="Notifications"
-            icon={<FiBell />}
-            activeIcon={<HiBell />}
-          />
-        </li>
-        <li>
-          <MenuOption
-            name="Messages"
-            icon={<BiEnvelope />}
-            activeIcon={<FaEnvelope />}
-          />
-        </li>
-        <li>
-          <MenuOption
-            name="Bookmarks"
-            icon={<FiBookmark />}
-            activeIcon={<MdBookmark />}
-          />
-        </li>
-        <li>
-          <MenuOption
-            name="Lists"
-            icon={<RiFileList2Line />}
-            activeIcon={<RiFileList2Fill />}
-          />
-        </li>
-        <li>
-          <MenuOption
-            name="Profile"
-            icon={<BsPerson />}
-            activeIcon={<IoPerson />}
-          />
-        </li>
-        <li>
-          <More name="More" icon={<CgMoreO />} />
-        </li>
-      </nav>
-      <button
-        className={Styles.tweetButton}
-        onClick={() => navigate("/compose/tweet")}
-      >
-        Tweet
-      </button>
-      <Profiles />
-    </div>
+    <>
+      <div className={Styles.placeholder}></div>
+      <div className={Styles.menu}>
+        <Link to="/home">
+          <AiOutlineTwitter className={Styles.bird} />
+        </Link>
+        <nav>
+          <li>
+            <MenuOption
+              name="Home"
+              icon={<BiHomeCircle />}
+              activeIcon={<RiHome7Fill />}
+            />
+          </li>
+          <li>
+            <MenuOption
+              name="Explore"
+              icon={<RiHashtag />}
+              activeIcon={<FaHashtag />}
+            />
+          </li>
+          <li>
+            <MenuOption
+              name="Notifications"
+              icon={<FiBell />}
+              activeIcon={<HiBell />}
+            />
+          </li>
+          <li>
+            <MenuOption
+              name="Messages"
+              icon={<BiEnvelope />}
+              activeIcon={<FaEnvelope />}
+            />
+          </li>
+          <li>
+            <MenuOption
+              name="Bookmarks"
+              icon={<FiBookmark />}
+              activeIcon={<MdBookmark />}
+            />
+          </li>
+          <li>
+            <MenuOption
+              name="Lists"
+              icon={<RiFileList2Line />}
+              activeIcon={<RiFileList2Fill />}
+            />
+          </li>
+          <li>
+            <MenuOption
+              name="Profile"
+              icon={<BsPerson />}
+              activeIcon={<IoPerson />}
+            />
+          </li>
+          <li>
+            <More name="More" icon={<CgMoreO />} />
+          </li>
+        </nav>
+        <button
+          className={Styles.tweetButton}
+          onClick={() => navigate("/compose/tweet")}
+        >
+          Tweet
+        </button>
+        <Profiles />
+      </div>
+    </>
   );
 };
 

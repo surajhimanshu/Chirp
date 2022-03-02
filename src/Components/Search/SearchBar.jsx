@@ -4,7 +4,6 @@ import styles from "./searchBar.module.css";
 import { useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
 
-
 const SearchBar = () => {
   const [search, setSearch] = useState([]);
   const [valInput, setValInput] = useState("");
@@ -42,7 +41,7 @@ const SearchBar = () => {
   return (
     <div className={styles.search_bar_container}>
       <div>
-        <BsSearch size={15} className={styles.iccon} />
+        <BsSearch className={styles.iccon} />
         <input
           type="text"
           name={"search"}
@@ -65,7 +64,7 @@ const SearchBar = () => {
                 <div style={{ display: "flex", margin: " 5px 0 5px 10px" }}>
                   <img
                     src={el.avatar}
-                    // alt="Individual p"
+                    alt=""
                     style={{
                       width: "45px",
                       marginRight: "30px",
@@ -89,109 +88,3 @@ const SearchBar = () => {
 };
 
 export default SearchBar;
-
-
-
-
-
-
-
-
-
-
-
-// import React from "react";
-// import { useState, useCallback } from "react";
-// import styles from "./throttling.module.css";
-// import "../App.css";
-// import { useNavigate } from "react-router-dom";
-
-// import { BsSearch } from "react-icons/bs";
-
-// const Throttling = () => {
-//   const [search, setSearch] = useState([]);
-//   const [valInput, setValInput] = useState("");
-
-//   const navigate = useNavigate();
-
-//   const debounce = (func) => {
-//     let timer;
-//     return function (...args) {
-//       const context = this;
-//       if (timer) clearTimeout(timer);
-//       timer = setTimeout(() => {
-//         timer = null;
-//         func.apply(context, args);
-//       }, 300);
-//     };
-//   };
-
-//   const handleChange = (event) => {
-//     const q = event.target.value;
-//     setValInput(q);
-//     fetch(`http://localhost:3000/users?q=${q}`)
-//       .then((res) => res.json())
-//       .then((json) => {
-//         setSearch(json);
-//       })
-//       .catch((e) => console.error(e));
-//   };
-
-//   const debounceVerion = useCallback(debounce(handleChange));
-
-//   const handleClick = (el) => {
-//     navigate(`/${el.id}`);
-//   };
-
-//   return (
-//     <div className="search-bar-container">
-//       {/* Throttling */}
-//       <div>
-//         <BsSearch size={15} className={"iccon"} />
-//         <input
-//           type={"text"}
-//           name={"search"}
-//           placeholder={"Search Twitter"}
-//           className={"search"}
-//           onChange={debounceVerion}
-//         />
-//       </div>
-//       {valInput && search?.length > 0 && (
-//         <div className={"autocomplete"}>
-//           {search?.slice(0, 5).map((el, i) => {
-//             let name = el.name;
-//             return name.toLowerCase().includes(valInput.toLowerCase()) ? (
-//               <div
-//                 key={el.id}
-//                 className={"autocompleteItems"}
-//                 value={el.name}
-//                 onClick={() => handleClick(el)}
-//               >
-//                 <div style={{ display: "flex", margin: " 5px 0 5px 10px" }}>
-//                   <img
-//                     src={el.avatar}
-//                     alt="ind image"
-//                     style={{
-//                       width: "45px",
-//                       marginRight: "30px",
-//                       borderRadius: "50%",
-//                     }}
-//                   />
-//                   <div>
-//                     <div style={{ color: "black" }}>{el.name}</div>
-//                     <div style={{ color: "grey" }}>{el.userName}</div>
-//                   </div>
-//                 </div>
-//               </div>
-//             ) : (
-//               <div key={el.id}></div>
-//             );
-//           })}
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Throttling;
-
