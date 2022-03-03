@@ -1,29 +1,67 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import styled from "styled-components";
+import { getPostsAPI, getUsersAPI } from "../DataApi/data.api";
+import Article from "./QuickFeedArticle";
 
 const Wrapper = styled.div`
-    outline: 1px solid red;
-    margin: 18px 0px;
-    box-sizing: border-box;
-    border-radius: 14px;
-    padding: 8px 16px;
-    height: 1000px;
+  margin: 18px 0px;
+  box-sizing: border-box;
+  border-radius: 14px;
+  height: fit-content;
+  background-color: #192734;
 `;
 
 const Heading = styled.h4`
-    outline: 1px solid red;
-    margin: 0px;
-    margin-bottom: 8px;
-    padding: 0px;
-    letter-spacing: .5px;
+  margin: 0px;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  letter-spacing: 0.5px;
 `;
 
-const QuickFeed = ({heading}) => {
+const ShowMoreButton = styled.div`
+  color: rgb(29, 155, 240);
+  font-size: 15px;
+  cursor: pointer;
+  padding: 18px 16px;
+  transition-duration: 0.2s;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+`;
+
+const QuickFeed = ({ heading, type }) => {
+  const { posts } = useSelector((state) => state.posts);
+  const { users } = useSelector((state) => state.users);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPostsAPI());
+    dispatch(getUsersAPI());
+  }, []);
+
   return (
     <Wrapper>
-        <Heading>{heading}</Heading>
+      <Heading>{heading}</Heading>
+      {type === "posts" ? (
+        <>
+          <Article data={posts[0]} type={type} />
+          <Article data={posts[1]} type={type} />
+          <Article data={posts[2]} type={type} />
+          <Article data={posts[3]} type={type} />
+        </>
+      ) : (
+        <>
+          <Article data={users[0]} type={type} />
+          <Article data={users[1]} type={type} />
+          <Article data={users[2]} type={type} />
+          <Article data={users[3]} type={type} />
+        </>
+      )}
+      <ShowMoreButton>Show more</ShowMoreButton>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default QuickFeed
+export default QuickFeed;

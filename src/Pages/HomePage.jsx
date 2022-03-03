@@ -1,8 +1,8 @@
 import React from "react";
-import Footer from "../Components/Footer/Footer";
-import Home from "../Components/Home/Home";
-import Menu from "../Components/Menu/Menu";
-import Styles from "../Components/CSS/homepage.module.css";
+import Footer from "../features/Footer/Footer";
+import Home from "../features/Home/Home";
+import Menu from "../features/Menu/Menu";
+import Styles from "../features/CSS/homepage.module.css";
 import { Route, Routes } from "react-router-dom";
 import ExplorePage from "./ExplorePage";
 
