@@ -1,4 +1,4 @@
-import Post from "./Components/Mid part/Feed";
+import Post from "./Components/Feed/Feed";
 // import Component from "./Mid part/Component";
 
 const App = () => {
