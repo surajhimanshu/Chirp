@@ -52,7 +52,7 @@ const SearchBar = () => {
       </div>
       {valInput && search?.length > 0 && (
         <div className={styles.suggestion_container}>
-          {search?.slice(0, 5).map((el, i) => {
+          {search?.map((el, i) => {
             let name = el.name;
             return name.toLowerCase().includes(valInput.toLowerCase()) ? (
               <div

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { getPostsAPI, getUsersAPI } from "../DataApi/data.api";
 import Article from "./QuickFeedArticle";
@@ -35,28 +36,31 @@ const QuickFeed = ({ heading, type }) => {
   const { posts } = useSelector((state) => state.posts);
   const { users } = useSelector((state) => state.users);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getPostsAPI());
     dispatch(getUsersAPI());
-  }, []);
+  }, [dispatch]);
 
   return (
-    <Wrapper>
+    <Wrapper
+      onClick={() => {
+        navigate("/explore");
+      }}
+    >
       <Heading>{heading}</Heading>
       {type === "posts" ? (
         <>
           <Article data={posts[0]} type={type} />
           <Article data={posts[1]} type={type} />
           <Article data={posts[2]} type={type} />
-          <Article data={posts[3]} type={type} />
         </>
       ) : (
         <>
           <Article data={users[0]} type={type} />
           <Article data={users[1]} type={type} />
           <Article data={users[2]} type={type} />
-          <Article data={users[3]} type={type} />
         </>
       )}
       <ShowMoreButton>Show more</ShowMoreButton>
