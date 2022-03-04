@@ -8,6 +8,22 @@ const Home = () => {
       <div className={Styles.placeholder}></div>
       <div className={Styles.homeButton}>Home</div>
       <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
+      <TweetBox />
     </div>
   );
 };

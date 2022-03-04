@@ -17,7 +17,7 @@ const MenuOption = ({ name, icon, activeIcon }) => {
         <div className={Styles.menuOption}>
           <i>{pathname === "/" + path ? activeIcon : icon}</i>
           &nbsp; &nbsp;
-          {name}
+          <span className={Styles.menuOptionName}>{name}</span>
         </div>
       </Link>
     </>

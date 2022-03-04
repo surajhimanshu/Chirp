@@ -1,16 +1,15 @@
-import React from 'react'
-import Styles from './menu.module.css'
-const More = ({name, icon}) => {
+import React from "react";
+import Styles from "./menu.module.css";
+const More = ({ name, icon }) => {
   return (
     <>
       <div className={Styles.more}>
         <i>{icon}</i>
-        &nbsp;
-        &nbsp;
-        {name}
+        &nbsp; &nbsp;
+        <span className={Styles.menuOptionName}>{name}</span>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default More
+export default More;

@@ -1,9 +1,13 @@
 .placeholder {
-    width: 276px;;
+    width: 276px;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .menu {
     width: 276px;
+    height: 100vh;
     padding: 1px 12px;
     box-sizing: border-box;
     border-right: 1px solid #38444E;
@@ -55,6 +59,10 @@ nav>li:hover>.more, nav>li:hover>.link>.menuOption {
     background-color: rgba(255, 255, 255, .1);
 }
 
+.tweetIcon {
+    display: none;
+}
+
 .tweetButton {
     background-color: rgb(29, 155, 240);
     border: none;
@@ -89,13 +97,16 @@ nav>li:hover>.more, nav>li:hover>.link>.menuOption {
 
 .profiles {
     box-sizing: border-box;
-    width: 100%;
     padding: 12px;
-    margin-top: 265px;
-    height: 64px;
+    position: absolute;
+    bottom: 10px;
+    width: fit-content;
+    height: 54px;
+
     border-radius: 34px;
     cursor: pointer;
     transition-duration: .2s;
+    outline: 1px solid red;
 }
 
 .profiles:hover {
@@ -104,4 +115,127 @@ nav>li:hover>.more, nav>li:hover>.link>.menuOption {
 
 .selected {
     font-weight: bold;
+}
+
+
+
+@media only screen and (max-width:1281px) {
+
+    .placeholder {
+        min-width: 183px;
+        max-width: 183px;
+    }
+
+    .menu {
+        width: 80px;
+        padding-top: 2px;
+        padding-right: 18px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        outline: 1px solid red;
+    }
+
+    .menuOption {
+        outline: 1px solid red;
+        padding: 0px;
+        width: 50px;
+        height: 50px;
+    }
+
+    i {
+        top: 8px;
+        left: 10px;
+    }
+
+    nav {
+        width: fit-content;
+    }
+
+    nav>li {
+        width: fit-content;
+    }
+
+    .menuOptionName {
+        display: none;
+    }
+
+    .profiles {
+        width: 40px;
+        height: 40px;
+        bottom: 30px;
+    }
+
+    .more {
+        padding: 0px;
+        width: 50px;
+        height: 50px;
+    }
+
+    .more>i {
+        left: 12px;
+    }
+
+    .tweetButton {
+        width: 52px;
+    }
+
+    .tweetIcon {
+        display: inline;
+        margin-top: 6px;
+        margin-left: 2px;
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width:1200px) {
+    .placeholder {
+        min-width: 150px;
+        max-width: 150px;
+    }
+}
+
+@media only screen and (max-width:1150px) {
+    .placeholder {
+        min-width: 125px;
+        max-width: 125px;
+    }
+}
+
+@media only screen and (max-width:1125px) {
+    .placeholder {
+        min-width: 112.5px;
+        max-width: 112.5px;
+    }
+}
+
+@media only screen and (max-width:1094px) {
+    .placeholder {
+        min-width: 132px;
+        max-width: 132px;
+    }
+}
+
+@media only screen and (max-width:1050px) {
+    .placeholder {
+        min-width: 110px;
+        max-width: 110px;
+    }
+}
+
+@media only screen and (max-width:1025px) {
+    .placeholder {
+        min-width: 97.5px;
+        max-width: 97.5px;
+    }
+}
+
+@media only screen and (max-width:1010px) {
+    .placeholder {
+        min-width: 80px;
+        max-width: 80px;
+    }
+    .menu {
+        padding-right: 8px;
+    }
 }

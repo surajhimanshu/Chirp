@@ -5,7 +5,7 @@ const Profiles = () => {
   return (
     <>
       <div className={Styles.profiles}>
-        <div>Profiles</div>
+        <span className={Styles.menuOptionName}>Profile</span>
       </div>
     </>
   );
