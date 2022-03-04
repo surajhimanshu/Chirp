@@ -33,10 +33,10 @@ const SearchBar = () => {
       .catch((e) => console.error(e));
   };
 
-  const debounceVerion = useCallback(debounce(handleChange));
+  const debounceVerion = useCallback(debounce(handleChange),[]);
 
   const handleClick = (el) => {
-    navigate(`/${el.id}`);
+    navigate(`/${el.userName}`);
   };
 
   return (
