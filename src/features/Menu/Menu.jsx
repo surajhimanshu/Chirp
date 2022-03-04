@@ -30,57 +30,57 @@ const Menu = () => {
           <Link to="/home">
             <AiOutlineTwitter className={Styles.bird} />
           </Link>
-          <nav>
-            <li>
+          <nav className={Styles.navigation}>
+            <li className={Styles.navHome}>
               <MenuOption
                 name="Home"
                 icon={<BiHomeCircle />}
                 activeIcon={<RiHome7Fill />}
               />
             </li>
-            <li>
+            <li className={Styles.navExplore}>
               <MenuOption
                 name="Explore"
                 icon={<RiHashtag />}
                 activeIcon={<FaHashtag />}
               />
             </li>
-            <li>
+            <li className={Styles.navNotifications}>
               <MenuOption
                 name="Notifications"
                 icon={<FiBell />}
                 activeIcon={<HiBell />}
               />
             </li>
-            <li>
+            <li className={Styles.navMessages}>
               <MenuOption
                 name="Messages"
                 icon={<BiEnvelope />}
                 activeIcon={<FaEnvelope />}
               />
             </li>
-            <li>
+            <li className={Styles.navBookmarks}>
               <MenuOption
                 name="Bookmarks"
                 icon={<FiBookmark />}
                 activeIcon={<MdBookmark />}
               />
             </li>
-            <li>
+            <li className={Styles.navLists}>
               <MenuOption
                 name="Lists"
                 icon={<RiFileList2Line />}
                 activeIcon={<RiFileList2Fill />}
               />
             </li>
-            <li>
+            <li className={Styles.navProfile}>
               <MenuOption
                 name="Profile"
                 icon={<BsPerson />}
                 activeIcon={<IoPerson />}
               />
             </li>
-            <li>
+            <li className={Styles.navMore}>
               <More name="More" icon={<CgMoreO />} />
             </li>
           </nav>

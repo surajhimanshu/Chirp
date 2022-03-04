@@ -27,7 +27,7 @@
     background-color: rgba(255, 255, 255, .1);
 }
 
-nav>li {
+.navigation>li {
     list-style: none;
     height: 58.25px;
     padding: 4px 0px;
@@ -55,7 +55,7 @@ i {
     transition-duration: .2s;
 }
 
-nav>li:hover>.more, nav>li:hover>.link>.menuOption {
+.navigation>li:hover>.more, .navigation>li:hover>.link>.menuOption {
     background-color: rgba(255, 255, 255, .1);
 }
 
@@ -144,11 +144,11 @@ nav>li:hover>.more, nav>li:hover>.link>.menuOption {
         left: 10px;
     }
 
-    nav {
+    .navigation {
         width: fit-content;
     }
 
-    nav>li {
+    .navigation>li {
         width: fit-content;
     }
 
@@ -198,6 +198,35 @@ nav>li:hover>.more, nav>li:hover>.link>.menuOption {
 
 @media only screen and (max-width: 499px) {
     .placeholder {
+        width: 0px;
+    }
+
+    .menu {
+        width: 0px;
+        padding: 0px;
+        right: 0%;
+    }
+
+    .bird, .navMore, .profiles, .navBookmarks, .navLists, .navProfile {
         display: none;
+    }
+
+    .navigation {
+        position: absolute;
+        display: flex;
+        justify-content: space-around;
+        z-index: 100;
+        background-color: #15202B;
+        width: 100vw;
+        bottom: 0px;
+    }
+
+    .tweetButton {
+        position: absolute;
+        bottom: 75px;
+        right: 20px;
+        height: 56px;
+        width: 56px;
+        z-index: 100;
     }
 }

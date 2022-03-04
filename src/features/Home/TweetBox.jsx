@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { MdOutlineImage } from "react-icons/md";
+import { css } from "styled-components";
 
 const ComposeWrapper = styled.div`
   margin-top: 4px;
@@ -10,9 +11,14 @@ const ComposeWrapper = styled.div`
   margin-bottom: 4px;
   display: flex;
   box-sizing: border-box;
-  @media only screen and (max-width: 499px) {
-    display: none;
-  }
+  // outline: 1px solid red;
+  ${(props) =>
+    props.primary &&
+    css`
+      @media only screen and (max-width: 499px) {
+        display: none;
+      }
+    `}
 `;
 const Avatar = styled.div`
   width: 62px;
@@ -99,7 +105,7 @@ const Close = styled.button`
   }
 `;
 
-const TweetBox = () => {
+const TweetBox = ({ visibility }) => {
   const hiddenFileInput = useRef();
   const image = useRef();
   const [showImage, setShowImage] = useState(false);
@@ -129,7 +135,7 @@ const TweetBox = () => {
   };
 
   return (
-    <ComposeWrapper>
+    <ComposeWrapper primary={!visibility}>
       <Avatar />
       <InputWrapper>
         <Input type="text" placeholder="What's happening?" />

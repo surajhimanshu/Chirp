@@ -54,7 +54,6 @@ const QuickFeed = ({ heading, type }) => {
         <>
           <Article data={posts[0]} type={type} />
           <Article data={posts[1]} type={type} />
-          <Article data={posts[2]} type={type} />
         </>
       ) : (
         <>
