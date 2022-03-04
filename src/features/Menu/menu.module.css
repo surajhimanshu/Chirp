@@ -106,7 +106,6 @@ nav>li:hover>.more, nav>li:hover>.link>.menuOption {
     border-radius: 34px;
     cursor: pointer;
     transition-duration: .2s;
-    outline: 1px solid red;
 }
 
 .profiles:hover {
@@ -122,8 +121,7 @@ nav>li:hover>.more, nav>li:hover>.link>.menuOption {
 @media only screen and (max-width:1281px) {
 
     .placeholder {
-        min-width: 183px;
-        max-width: 183px;
+        width: 89px;
     }
 
     .menu {
@@ -133,11 +131,9 @@ nav>li:hover>.more, nav>li:hover>.link>.menuOption {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        outline: 1px solid red;
     }
 
     .menuOption {
-        outline: 1px solid red;
         padding: 0px;
         width: 50px;
         height: 50px;
@@ -188,54 +184,20 @@ nav>li:hover>.more, nav>li:hover>.link>.menuOption {
     }
 }
 
-@media only screen and (max-width:1200px) {
-    .placeholder {
-        min-width: 150px;
-        max-width: 150px;
-    }
-}
-
-@media only screen and (max-width:1150px) {
-    .placeholder {
-        min-width: 125px;
-        max-width: 125px;
-    }
-}
-
-@media only screen and (max-width:1125px) {
-    .placeholder {
-        min-width: 112.5px;
-        max-width: 112.5px;
-    }
-}
-
 @media only screen and (max-width:1094px) {
     .placeholder {
-        min-width: 132px;
-        max-width: 132px;
+        width: 99px;
     }
 }
 
-@media only screen and (max-width:1050px) {
-    .placeholder {
-        min-width: 110px;
-        max-width: 110px;
+@media only screen and (max-width: 700px) {
+    .placeholder, .menu {
+        max-width: 77px;
     }
 }
 
-@media only screen and (max-width:1025px) {
+@media only screen and (max-width: 499px) {
     .placeholder {
-        min-width: 97.5px;
-        max-width: 97.5px;
-    }
-}
-
-@media only screen and (max-width:1010px) {
-    .placeholder {
-        min-width: 80px;
-        max-width: 80px;
-    }
-    .menu {
-        padding-right: 8px;
+        display: none;
     }
 }

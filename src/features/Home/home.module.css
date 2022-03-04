@@ -1,6 +1,6 @@
 .feed {
-    min-width: 598px;
-    max-width: 598px;
+    width: 598px;
+    /* max-width: 598px; */
     height: fit-content;
     min-height: 100vh;
     border-right: 1px solid #38444E;
@@ -12,7 +12,6 @@
 
 .homeButton {
     font-weight: bold;
-    width: 590px;
     cursor: pointer;
     padding: 13px 0px 14px 16px;
     font-size: 19px;

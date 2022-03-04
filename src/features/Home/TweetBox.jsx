@@ -4,11 +4,15 @@ import { MdOutlineImage } from "react-icons/md";
 
 const ComposeWrapper = styled.div`
   margin-top: 4px;
+  width: 100%;
   height: 107px;
   padding: 0px 16px;
   margin-bottom: 4px;
   display: flex;
   box-sizing: border-box;
+  @media only screen and (max-width: 499px) {
+    display: none;
+  }
 `;
 const Avatar = styled.div`
   width: 62px;
