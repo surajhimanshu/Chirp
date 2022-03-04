@@ -1,14 +1,22 @@
 import style from "./feed.module.css";
-import { FaRegComment, FaRetweet } from "react-icons/fa";
-import { BsBookmarkPlus,BsFillHeartFill } from "react-icons/bs";
+import { FaRegComment, FaRetweet,FaBookmark } from "react-icons/fa";
+import {BsFillHeartFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
+import React, { useContext } from 'react'
+
+import  { AuthContext } from "../../Contextprovider/Context"
 
 
 
-const Post = ({ element, get, userdata }) => {
+const Post = ({ element}) => {
+  const {userdata,getposts,getbookmark,bookmarkdata,tweets,getTweets} = useContext(AuthContext);
   const [isLoading, setIsLoading] = useState(true);
   // const[obj,setobj]= useState({})
   const [toggle,setToggle] =useState(true)
+
+
+
+
    
 
   const temp = userdata.filter(
@@ -20,9 +28,7 @@ const Post = ({ element, get, userdata }) => {
     // console.log("bsdhshj", temp, isLoading);
   }, [temp, setIsLoading, isLoading]);
 
-  let post = async (obj) => {
-     console.log(obj)
-     console.log(JSON.stringify(obj))
+  let post = async (obj,) => {
     try {
       let res = await fetch("http://localhost:3000/bookmarks", {
         method: "POST",
@@ -30,11 +36,60 @@ const Post = ({ element, get, userdata }) => {
         headers: { "Content-Type": "application/json" },
       });
       let res1 = await res.json();
-      // console.log(res1);
+      getbookmark()
+      console.log(res1);
     } catch (error) {
       console.log("err", error);
     }
   };
+  let posttweet = async (obj) => {
+    try {
+      let res = await fetch("http://localhost:3000/retweets", {
+        method: "POST",
+        body: JSON.stringify(obj),
+        headers: { "Content-Type": "application/json" },
+      });
+      let res1 = await res.json();
+      getTweets()
+      console.log(res1);
+    } catch (error) {
+      console.log("err", error);
+    }
+  };
+
+  let Delete =async(id)=>{
+    try {
+      let res = await fetch("http://localhost:3000/bookmarks/"+id, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      });
+      let res1 = await res.json();
+      getbookmark()
+      console.log(res1);
+    } catch (error) {
+      console.log("delete", error);
+    }
+  };
+
+  let Deletetweet =async(id)=>{
+    try {
+      let res = await fetch("http://localhost:3000/retweets/"+id, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+      });
+      let res1 = await res.json();
+      getTweets()
+      console.log(res1);
+    } catch (error) {
+      console.log("delete", error);
+    }
+  };
+
+
+
+
+
+
   let addcount = async (id,ele,count) => {
     // console.log(obj)
     setToggle(!toggle)
@@ -46,8 +101,8 @@ const Post = ({ element, get, userdata }) => {
         headers: { "Content-Type": "application/json" },
       });
       let res1 = await res.json();
-      // console.log("like",res1);
-      get()
+      console.log("like",res1);
+      getposts()
     } catch (error) {
       console.log("err", error);
     }
@@ -55,6 +110,7 @@ const Post = ({ element, get, userdata }) => {
 
   return (
     <>
+    
       {isLoading ? (
         "...Loading"
       ) : (
@@ -80,19 +136,20 @@ const Post = ({ element, get, userdata }) => {
                 ""
               ) : (
                 <video controls autoPlay muted width="500">
-                 
+
                   <source src={element.video} type="video/mp4"/>
                 </video>
               )}
             </div>
             <div className={style.buttons}>
               <div>
-                <div className={style.counts}>
+                <div className={style.counts}  >
                 <FaRegComment /> {}
                 </div>
               </div>
               <div>
-              <div className={style.counts}>
+              <div className={style.counts}   onClick= {()=>{ tweets.find((ele)=>ele.id===element.id)?Deletetweet(element.id):posttweet(element)}}   >
+
                 <FaRetweet /> {element.retweets}
                 </div>
               </div>
@@ -102,11 +159,13 @@ const Post = ({ element, get, userdata }) => {
                 </div>
               </div>
               <div
-                onClick={() => {
-                  post(element);
-                }}
+                onClick={() => 
+                 
+                { bookmarkdata.find((ele)=>ele.id===element.id)?Delete(element.id):post(element)}
+                  // addbookmark(element.id)
+                }
               >
-                <BsBookmarkPlus />
+                <FaBookmark color={bookmarkdata.find((ele)=>ele.id===element.id)?"black":"grey"} />
               </div>
 
               

@@ -1,0 +1,22 @@
+.feed {
+    min-width: 598px;
+    max-width: 598px;
+}
+
+.placeholder {
+    height: 53px;
+}
+
+.homeButton {
+    font-weight: bold;
+    width: 590px;
+    cursor: pointer;
+    padding: 13px 0px 14px 16px;
+    font-size: 19px;
+    letter-spacing: .2px;
+    box-sizing: border-box;
+    position: fixed;
+    background-color: rgba(21, 32, 43, .8);
+    backdrop-filter: blur(10px);
+    top: 0px;
+}
