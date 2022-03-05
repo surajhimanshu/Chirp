@@ -8,10 +8,11 @@ import { AiOutlineSetting} from "react-icons/ai";
 const Explore = () => {
   return (
     <div className={styles.explore_wrapper}>
-      <div className={styles.searchbar_wrapper}>
-        <SearchBar/>
+      {/* <div className={styles.searchbar_wrapper}> */}
+        
         {/* <AiOutlineSetting /> */}
-      </div>
+      {/* </div> */}
+      <SearchBar/>
       <div className={styles.explore_section_wrapper}>
             <Link to="/explore">For you</Link>
             <Link to="covid19">COVID-19</Link>

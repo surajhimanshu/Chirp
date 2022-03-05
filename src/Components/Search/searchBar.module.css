@@ -36,7 +36,7 @@
     padding-left: 40px;
   }
   
-  .styles.suggestion_container {
+  .suggestion_container {
     width: 100%;
     background: #fff;
     border-radius: 5px;
@@ -45,6 +45,8 @@
     overflow-y: scroll;
     margin-top: 10px;
     margin-left: 4px;
+    position: absolute;
+    z-index: 1;
   }
   .suggestion_item{
     padding: 2px;
