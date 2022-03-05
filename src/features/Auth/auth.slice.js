@@ -12,6 +12,8 @@ const authSlice = createSlice({
   },
   reducers: {
     logOut(state) {
+      saveLocalData("user", []);
+      saveLocalData("isAuth", false);
       state.user = [];
       state.isAuth = false;
       state.isError = false;
@@ -45,5 +47,5 @@ const authSlice = createSlice({
       });
   },
 });
-export const { tryLogin } = authSlice.actions;
+export const { logOut } = authSlice.actions;
 export default authSlice.reducer;

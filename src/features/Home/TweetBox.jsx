@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { MdOutlineImage } from "react-icons/md";
 import { css } from "styled-components";
+import { useSelector } from "react-redux";
 
 const ComposeWrapper = styled.div`
   margin-top: 4px;
@@ -20,9 +21,17 @@ const ComposeWrapper = styled.div`
       }
     `}
 `;
-const Avatar = styled.div`
+
+const AvatarWrapper = styled.div`
   width: 62px;
 `;
+
+const Avatar = styled.img`
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+`;
+
 const InputWrapper = styled.div`
   width: 100%;
   padding: 4px 2px 0px 5px;
@@ -109,6 +118,7 @@ const TweetBox = ({ visibility }) => {
   const hiddenFileInput = useRef();
   const image = useRef();
   const [showImage, setShowImage] = useState(false);
+  const user = useSelector((state) => state.user.user);
 
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -136,7 +146,9 @@ const TweetBox = ({ visibility }) => {
 
   return (
     <ComposeWrapper primary={!visibility}>
-      <Avatar />
+      <AvatarWrapper>
+        <Avatar src={user.avatar} alt="" />
+      </AvatarWrapper>
       <InputWrapper>
         <Input type="text" placeholder="What's happening?" />
         {showImage ? (
