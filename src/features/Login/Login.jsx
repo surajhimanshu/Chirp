@@ -6,6 +6,8 @@ import { FaTwitter } from "react-icons/fa";
 import { css } from "styled-components";
 import { isDisabled } from "@testing-library/user-event/dist/utils";
 import { useNavigate } from "react-router-dom";
+import { logUserAPI } from "../Auth/auth.api";
+import { useDispatch, useSelector } from "react-redux";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -144,19 +146,44 @@ const SignupText = styled.div`
   bottom: 0px;
 `;
 
+const ErrorBlock = styled.div`
+  color: cyan;
+  font-size: 18px;
+  margin-top: 20px;
+  text-align: center;
+`;
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [isDisabled, setIsDisabled] = useState(true);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const isError = useSelector((state) => state.user.isError);
+  const errorMessage = useSelector((state) => state.user.errorMessage);
 
   useEffect(() => {
     setIsDisabled(!(username.length > 0 && password.length > 0));
   }, [username, password]);
 
   const handleLogin = () => {
-    console.log(username);
-    console.log(password);
+    const payload = {
+      query: type(username[0]),
+      value: username,
+      password,
+    };
+    const loginAction = logUserAPI(payload);
+    dispatch(loginAction);
+  };
+
+  const type = (val) => {
+    if (val >= 0 && val <= 9) {
+      return "phoneNo";
+    } else if (val === "@") {
+      return "userName";
+    } else {
+      return "email";
+    }
   };
 
   const toSignup = () => {
@@ -214,6 +241,8 @@ const Login = () => {
             </InputContainer>
 
             <StyledLink fontSize={13}>Forgot password?</StyledLink>
+
+            {isError ? <ErrorBlock>{errorMessage}</ErrorBlock> : <></>}
 
             <LoginButton disabled={isDisabled} onClick={handleLogin}>
               Log in

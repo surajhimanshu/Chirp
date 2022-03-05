@@ -21,5 +21,5 @@ const postsSlice = createSlice({
       });
   },
 });
-export const { getData } = postsSlice.actions;
+// export const { getData } = postsSlice.actions;
 export default postsSlice.reducer;

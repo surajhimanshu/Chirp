@@ -2,14 +2,11 @@ import HomePage from "./Pages/HomePage";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import SignupPage from "./Pages/SignupPage";
 import LoginPage from "./Pages/LoginPage";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
 
 const App = () => {
-  // const isAuth = useSelector((state) => state.auth.isAuth);
-
-  const isAuth = false;
-
+  const isAuth = useSelector((state) => state.user.isAuth);
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
@@ -17,6 +14,8 @@ const App = () => {
       if (location.pathname !== "/signup") {
         navigate("/login");
       }
+    } else {
+      navigate("/home");
     }
   }, [isAuth, location.pathname, navigate]);
 
