@@ -37,6 +37,7 @@
   margin-top: 10px;
   margin-left: 4px;
   position: absolute;
+  z-index: 1;
 }
 
 .suggestion_item {
