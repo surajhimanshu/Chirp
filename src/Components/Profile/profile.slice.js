@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {  getIndividualUserProfileApi, getIndividualUserPostsApi } from "./profile.api";
+import {  getIndividualUserProfileApi, getIndividualUserPostsApi ,getCategoryPostsApi} from "./profile.api";
 
-const initialState = {individualUserProfile:{},individualUserPosts:[]};
+const initialState = {individualUserProfile:{},individualUserPosts:[],categoryPosts : []};
 
 
 const profileSlice = createSlice({
@@ -14,6 +14,9 @@ const profileSlice = createSlice({
         })
         .addCase(getIndividualUserPostsApi.fulfilled ,(state,action)=>{
             state.individualUserPosts = action.payload;
+        })
+        .addCase(getCategoryPostsApi.fulfilled ,(state,action)=>{
+            state.categoryPosts = action.payload;
         })
 
     }

@@ -1,0 +1,27 @@
+.container{
+    display: flex;
+    /* margin: 10px 5px; */
+    padding: 10px 5px;
+    cursor: pointer;
+}
+.container:hover{
+  background-color: rgb(238, 231, 231);
+}
+.content{
+    flex-grow: 2;
+    font-size: 0.9em;
+    font-weight: 700;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.image_container{
+    height: 60px;
+    width: 70px;
+   
+}
+.image_container img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}

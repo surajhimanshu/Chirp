@@ -22,3 +22,16 @@ export const getIndividualUserPostsApi = createAsyncThunk(
     return response.data;
   }
 );
+
+
+// get post by category via category name(ex - foryou, trending,sports,etc) and in profile.slice.js it's categoryPosts
+
+export const getCategoryPostsApi = createAsyncThunk(
+  "category/post",
+  async (categoryName) => {
+    const response = await axios.get(
+      `http://localhost:3000/posts/?category=${categoryName}`
+    );
+    return response.data;
+  }
+);
