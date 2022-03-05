@@ -15,7 +15,7 @@ const HomePage = () => {
     if (location.pathname === "/") {
       navigate("/home");
     }
-  }, [location]);
+  }, [location, location.pathname, navigate]);
 
   return (
     <div className={Styles.homepage}>

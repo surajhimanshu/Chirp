@@ -14,7 +14,9 @@ const App = () => {
   const location = useLocation();
   useEffect(() => {
     if (!isAuth) {
-      navigate(location.pathname === "/signup" ? "/signup" : "/login");
+      if (location.pathname !== "/signup") {
+        navigate("/login");
+      }
     }
   }, [isAuth, location.pathname, navigate]);
 
