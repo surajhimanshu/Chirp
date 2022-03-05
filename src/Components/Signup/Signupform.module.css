@@ -1,7 +1,88 @@
 .main{
     display: flex;
-    justify-content: space-evenly;
+   justify-content: space-between;
+   align-items: center;
+}
+.container{
+    padding-left: 50px ;
+    padding-right: 50px ;
+    padding-top: 10px;
+
+}
+.close{
+     display: flex;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+  align-items: center;
+   justify-content: center;
+    
+}
+.close:hover{
+    
+    background-color: rgb(206, 201, 201);
+
 }
 .main .bird{
-    height: 50px;
+    height: 40px;
+}
+
+.link{
+  color: #1D9BF0; 
+  margin: 25px 0 25px 0  ;
+  cursor: pointer;
+  
+
+}
+.link:hover{
+    text-decoration: underline;
+}
+
+.p{
+margin-top: 0;
+color: grey;
+}
+.down{
+    margin-top: 5px;
+    margin-right: 5px;
+    border: none; 
+    width: 100%;
+    outline: none;
+}
+
+.date{
+    display: flex;
+    gap: 10px;
+}
+.month{
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 40%;
+    padding: 3px;
+}
+.Day{
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 25%;
+    padding: 3px;
+}
+.year{
+    border: 1px solid grey;
+    border-radius: 5px;
+    width: 25%;
+    padding: 3px;
+}
+.button{
+    width: 100%;
+    margin-top: 120px;
+    height: 40px;
+  font-size: 15px;
+  border-radius: 25px;
+  border: none;
+  background-color: #878A8C;
+  color: white;
+  font-weight:700;
+}
+.name{
+    width: 100%;
 }
