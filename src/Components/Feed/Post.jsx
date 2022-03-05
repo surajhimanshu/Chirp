@@ -143,7 +143,7 @@ const Post = ({ element}) => {
             </div>
             <div className={style.buttons}>
               <div>
-                <div className={style.counts}  >
+                <div className={style.counts}>
                 <FaRegComment /> {}
                 </div>
               </div>
