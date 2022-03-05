@@ -20,12 +20,9 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import More from "./More";
 import Profiles from "./Profiles";
-import { useDispatch } from "react-redux";
-import { logOut } from "../Auth/auth.slice";
 
 const Menu = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   return (
     <>
       <div className={Styles.placeholder}>
@@ -94,7 +91,7 @@ const Menu = () => {
             <RiQuillPenFill className={Styles.tweetIcon} />
             <span className={Styles.menuOptionName}>Tweet</span>
           </button>
-          <Profiles/>
+          <Profiles />
         </div>
       </div>
     </>
