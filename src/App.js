@@ -15,7 +15,9 @@ const App = () => {
         navigate("/login");
       }
     } else {
-      navigate("/home");
+      if (location.pathname === "/home") {
+        navigate("/home");
+      }
     }
   }, [isAuth, location.pathname, navigate]);
 
