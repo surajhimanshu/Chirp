@@ -1,8 +1,8 @@
 .explore_wrapper{
-    width: 450px;
+    /* width: 450px; */
     margin: auto;
     position: relative;
-    border:0.5px solid rgb(220, 210, 210);
+    /* border:0.5px solid rgb(220, 210, 210); */
     
    
     /* border-color: red; */
@@ -24,9 +24,10 @@
 }
 .explore_section_wrapper a{
     cursor: pointer;
-    color:rgb(83, 100, 113);
+    color:rgba(255,255,255,.8);
     font-weight: 500;
     padding:7px 3px ;
+    text-decoration: none;
    
     display: flex;
     justify-content: center;
@@ -35,11 +36,13 @@
 }
 .explore_section_wrapper a:hover{
    
-    background-color:rgb(216, 228, 238);
+    /* background-color:rgb(216, 228, 238); */
+    border-bottom: 1px solid #00aaee;
+
     
 }
 .explore_section_wrapper a:focus{
-    color: rgb(5, 25, 40);
+    color: white;
     border-bottom: 3px solid #00aaee;
     font-weight: bold;
     

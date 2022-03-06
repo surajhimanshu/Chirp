@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Component from "./Post";
-import TweetBox from "./../Home/TweetBox";
 import { useSelector } from "react-redux";
 const Feed = () => {
   const { posts } = useSelector((state) => state.posts);

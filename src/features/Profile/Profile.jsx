@@ -9,7 +9,8 @@ import {
   getIndividualUserPostsApi,
   getIndividualUserProfileApi,
 } from "./profile.api";
-import IndividualUserPost from "./IndividualUserPost";
+// import IndividualUserPost from "./IndividualUserPost";
+import Post from "../Feed/Post";
 import Styles from "../Home/home.module.css";
 
 const Profile = () => {
@@ -66,7 +67,7 @@ const Profile = () => {
               marginBottom: "7px",
             }}
           >
-            Chief Investment Officer || {profile[0].workPlace}
+          {profile[0].workPlace}
           </div>
 
           <div className={styles.location_container}>
@@ -95,8 +96,8 @@ const Profile = () => {
         </div>
 
         <div>
-          {posts.map((post) => (
-            <IndividualUserPost key={post.id} post={post} />
+          {posts.map((el) => (
+            <Post key={el.id} element={el} />
           ))}
         </div>
       </div>

@@ -20,6 +20,7 @@ import {
   getUsersAPI,
 } from "../features/DataApi/data.api";
 import TweetPage from "./TweetPage";
+import BookmarkPage from "./BookmarkPage";
 
 const HomePage = () => {
   const location = useLocation();
@@ -47,6 +48,7 @@ const HomePage = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/explore/*" element={<ExplorePage />} />
           <Route path="/lists" element={<ListsPage />} />
+          <Route path="/bookmarks" element={<BookmarkPage />} />
           <Route path="/compose/tweet" element={<TweetPage />} />
           <Route path="/settings" element={<SettingsPage />} />
           <Route path="/profile/:userName" element={<Profile />} />

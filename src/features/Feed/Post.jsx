@@ -28,7 +28,6 @@ const Post = ({ element }) => {
   useEffect(() => {
     setIsLoading(element ? false : true);
   }, [element, setIsLoading]);
-
   return (
     <>
       {isLoading ? (
@@ -41,7 +40,7 @@ const Post = ({ element }) => {
 
           <div className={style.details}>
             <div className="name">
-              <strong> {element.name}</strong> &nbsp;{element.userName}
+              <strong> {element.name}</strong> &nbsp;{element.username}
             </div>
             <div className={style.comment}>
               <h3>{element.tweet}</h3>
