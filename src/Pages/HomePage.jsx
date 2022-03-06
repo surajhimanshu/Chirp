@@ -22,7 +22,7 @@ const HomePage = () => {
       <Menu />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/explore" element={<ExplorePage />} />
+        <Route path="/explore*" element={<ExplorePage />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <Footer />
