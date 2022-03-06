@@ -1,13 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import style from "./Signupform.module.css";
 
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
+import { signupUserAPI } from "../DataApi/data.api";
+import { useDispatch } from "react-redux";
 
 const Signupform = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const name = useRef();
   const userName = useRef();
@@ -25,8 +28,6 @@ const Signupform = () => {
 
   let year = new Array(122).fill(1);
 
-  const [data, setdata] = useState({});
-
   const check = () => {
     if (
       name.current.querySelector("div").querySelector("input").value &&
@@ -37,23 +38,114 @@ const Signupform = () => {
       yearNumber.current.value
     ) {
       setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
     }
   };
 
   let Submit = (e) => {
     e.preventDefault();
 
-    let obj = {
-      name: e.target.name.value,
-      phone: e.target.Phone.value,
-      month: e.target.month.value,
-      day: e.target.Day.value,
-      year: e.target.year.value,
-      username: e.target.username.value,
-    };
-    setdata(obj);
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, "0");
+    let mm = String(today.getMonth() + 1).padStart(2, "0");
+    let yyyy = today.getFullYear();
+    today = dd + mm + yyyy;
 
-    console.log(data);
+    let payload = {
+      name: "",
+      userName: "",
+      email: "",
+      password: "",
+      dob: "",
+      phoneNo: "",
+      gender: "",
+      avatar: "https://reqres.in/img/faces/7-image.jpg",
+      location: "",
+      joined: today,
+      workPlace: "",
+      cover:
+        "https://firebasestorage.googleapis.com/v0/b/fir-react-upload-dc714.appspot.com/o/image307?alt=media&token=1994361c-92b0-4d94-ba63-a7cbbda79f04",
+    };
+    let query = {};
+
+    query = {
+      name: name.current.querySelector("div").querySelector("input").value,
+      userName:
+        userName.current.querySelector("div").querySelector("input")
+          .value[0] === "@"
+          ? userName.current.querySelector("div").querySelector("input").value
+          : `@${
+              userName.current.querySelector("div").querySelector("input").value
+            }`,
+    };
+    payload = { ...payload, ...query };
+    query = {};
+    if (
+      phone.current.querySelector("div").querySelector("input").value[0] >= 0 &&
+      phone.current.querySelector("div").querySelector("input").value[0] <= 9
+    ) {
+      query.phoneNo = phone.current
+        .querySelector("div")
+        .querySelector("input").value;
+    } else {
+      query.email = phone.current
+        .querySelector("div")
+        .querySelector("input").value;
+    }
+    payload = { ...payload, ...query };
+    query = {};
+    let newMonth = "01";
+    switch (month.current.value) {
+      case "January":
+        newMonth = "01";
+        break;
+      case "February":
+        newMonth = "02";
+        break;
+      case "March":
+        newMonth = "03";
+        break;
+      case "April":
+        newMonth = "04";
+        break;
+      case "May":
+        newMonth = "05";
+        break;
+      case "June":
+        newMonth = "06";
+        break;
+      case "July":
+        newMonth = "07";
+        break;
+      case "August":
+        newMonth = "08";
+        break;
+      case "September":
+        newMonth = "09";
+        break;
+      case "October":
+        newMonth = "10";
+        break;
+      case "November":
+        newMonth = "11";
+        break;
+      case "December":
+        newMonth = "12";
+        break;
+      default:
+        newMonth = "01";
+        break;
+    }
+    query = {
+      dob: `${date.current.value}${newMonth}${yearNumber.current.value}`,
+    };
+    payload = { ...payload, ...query };
+    query = {};
+
+    const signupAction = signupUserAPI(payload);
+    dispatch(signupAction);
+    navigate("/login");
   };
 
   let x = "February";
