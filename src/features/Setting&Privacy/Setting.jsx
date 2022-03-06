@@ -17,4 +17,4 @@ const Setting = () => {
   )
 }
 
-export default Setting
+export default Setting 
