@@ -4,8 +4,10 @@ import { HiArrowLeft } from "react-icons/hi";
 import { IoMdPerson } from "react-icons/io";
 import { FaGreaterThan } from "react-icons/fa";
 import { BsKey } from "react-icons/bs";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 const Youraccount = () => {
+ const navigate = useNavigate()
   return (
     <>
     <div className={style.body}>
@@ -28,7 +30,7 @@ const Youraccount = () => {
       </div>
 
      
-        <div className={style.part}  onclick={Navigate()} >
+        <div className={style.part}  onClick={()=>navigate("/account")} >
           <div>
             <IoMdPerson className={style.icon} />
           </div>
@@ -46,7 +48,7 @@ const Youraccount = () => {
           </div>
         </div>
 
-        <div className={style.part}   onclick={Navigate()}>
+        <div className={style.part}   onClick={()=>navigate("/password")}>
           <div className={style.icon}>
             <BsKey  />
           </div>

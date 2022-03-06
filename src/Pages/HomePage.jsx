@@ -10,6 +10,8 @@ import ErrorPage from "./ErrorPage";
 import ListsPage from "./ListsPage";
 import SettingsPage from "./SettingsPage";
 import Profile from "../features/Profile/Profile";
+import Accountinfo from "../features/Setting&Privacy/Accountinfo";
+import Password from "../features/Setting&Privacy/Password";
 
 const HomePage = () => {
   const location = useLocation();
@@ -31,6 +33,9 @@ const HomePage = () => {
         <Route path="/lists" element={<ListsPage />} />
         <Route path="/settings" element={<SettingsPage />} />
         <Route path="/profile/:userName" element={<Profile />} />
+        <Route path="/account" element={<Accountinfo />} />
+        <Route path="/password" element={<Password />} />
+
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
