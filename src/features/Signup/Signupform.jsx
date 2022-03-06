@@ -5,34 +5,147 @@ import style from "./Signupform.module.css";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
+import { signupUserAPI } from "../DataApi/data.api";
+import { useDispatch } from "react-redux";
 
 const Signupform = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const name = useRef();
+  const userName = useRef();
+  const phone = useRef();
+  const month = useRef();
+  const date = useRef();
+  const yearNumber = useRef();
+
   //   const [day, setday] = useState(31);
   const [days, setdays] = useState([]);
-  const month = useRef();
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const [email, setemail] = useState("Email");
   const [Phone, setphone] = useState("Phone");
 
   let year = new Array(122).fill(1);
 
-  const [data, setdata] = useState({});
+  const check = () => {
+    if (
+      name.current.querySelector("div").querySelector("input").value &&
+      userName.current.querySelector("div").querySelector("input").value &&
+      phone.current.querySelector("div").querySelector("input").value &&
+      month.current.value &&
+      date.current.value &&
+      yearNumber.current.value
+    ) {
+      setIsDisabled(false);
+    } else {
+      setIsDisabled(true);
+    }
+  };
 
   let Submit = (e) => {
     e.preventDefault();
 
-    let obj = {
-      name: e.target.name.value,
-      phone: e.target.Phone.value,
-      month: e.target.month.value,
-      day: e.target.Day.value,
-      year: e.target.year.value,
-      username: e.target.username.value,
-    };
-    setdata(obj);
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, "0");
+    let mm = String(today.getMonth() + 1).padStart(2, "0");
+    let yyyy = today.getFullYear();
+    today = dd + mm + yyyy;
 
-    console.log(data);
+    let payload = {
+      name: "",
+      userName: "",
+      email: "",
+      password: "",
+      dob: "",
+      phoneNo: "",
+      gender: "",
+      avatar: "https://reqres.in/img/faces/7-image.jpg",
+      location: "",
+      joined: today,
+      workPlace: "",
+      cover:
+        "https://firebasestorage.googleapis.com/v0/b/fir-react-upload-dc714.appspot.com/o/image307?alt=media&token=1994361c-92b0-4d94-ba63-a7cbbda79f04",
+    };
+    let query = {};
+
+    query = {
+      name: name.current.querySelector("div").querySelector("input").value,
+      userName:
+        userName.current.querySelector("div").querySelector("input")
+          .value[0] === "@"
+          ? userName.current.querySelector("div").querySelector("input").value
+          : `@${
+              userName.current.querySelector("div").querySelector("input").value
+            }`,
+    };
+    payload = { ...payload, ...query };
+    query = {};
+    if (
+      phone.current.querySelector("div").querySelector("input").value[0] >= 0 &&
+      phone.current.querySelector("div").querySelector("input").value[0] <= 9
+    ) {
+      query.phoneNo = phone.current
+        .querySelector("div")
+        .querySelector("input").value;
+    } else {
+      query.email = phone.current
+        .querySelector("div")
+        .querySelector("input").value;
+    }
+    payload = { ...payload, ...query };
+    query = {};
+    let newMonth = "01";
+    switch (month.current.value) {
+      case "January":
+        newMonth = "01";
+        break;
+      case "February":
+        newMonth = "02";
+        break;
+      case "March":
+        newMonth = "03";
+        break;
+      case "April":
+        newMonth = "04";
+        break;
+      case "May":
+        newMonth = "05";
+        break;
+      case "June":
+        newMonth = "06";
+        break;
+      case "July":
+        newMonth = "07";
+        break;
+      case "August":
+        newMonth = "08";
+        break;
+      case "September":
+        newMonth = "09";
+        break;
+      case "October":
+        newMonth = "10";
+        break;
+      case "November":
+        newMonth = "11";
+        break;
+      case "December":
+        newMonth = "12";
+        break;
+      default:
+        newMonth = "01";
+        break;
+    }
+    query = {
+      dob: `${date.current.value}${newMonth}${yearNumber.current.value}`,
+    };
+    payload = { ...payload, ...query };
+    query = {};
+
+    const signupAction = signupUserAPI(payload);
+    dispatch(signupAction);
+    navigate("/login");
   };
 
   let x = "February";
@@ -85,15 +198,20 @@ const Signupform = () => {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  "& > :not(style)": { },
+                  "& > :not(style)": {},
                 }}
               >
                 <TextField
+                  InputLabelProps={{
+                    style: { color: "rgba(255, 255, 255, 0.5)" },
+                  }}
                   className={style.name}
                   name="name"
                   helperText=""
                   id="demo-helper-text-aligned"
                   label="Name"
+                  onChange={check}
+                  ref={name}
                 />
               </Box>
 
@@ -105,28 +223,38 @@ const Signupform = () => {
                 }}
               >
                 <TextField
+                  InputLabelProps={{
+                    style: { color: "rgba(255, 255, 255, 0.5)" },
+                  }}
                   className={style.name}
                   name="username"
                   helperText=""
                   id="demo-helper-text-aligned"
                   label="UserName"
+                  onChange={check}
+                  ref={userName}
                 />
               </Box>
 
-              <Box   
+              <Box
                 sx={{
-                  color:"white",
+                  color: "white",
                   display: "flex",
                   alignItems: "center",
-                  "& > :not(style)": { mt: 2 , color:"white"},
+                  "& > :not(style)": { mt: 2, color: "white" },
                 }}
               >
                 <TextField
+                  InputLabelProps={{
+                    style: { color: "rgba(255, 255, 255, 0.5)" },
+                  }}
                   className={style.name}
                   name={Phone}
                   helperText=""
                   id="demo-helper-text-aligned"
                   label={Phone}
+                  onChange={check}
+                  ref={phone}
                 />
               </Box>
 
@@ -147,7 +275,10 @@ const Signupform = () => {
                       <select
                         name="month"
                         className={style.down}
-                        onChange={Month}
+                        onChange={() => {
+                          Month();
+                          check();
+                        }}
                         ref={month}
                       >
                         <option value=" ">&nbsp;&nbsp;&nbsp;&nbsp;</option>
@@ -170,7 +301,12 @@ const Signupform = () => {
                   <div className={style.Day}>
                     <div className={style.x}> Day</div>
                     <div className={style.number}>
-                      <select name="Day" className={style.down}>
+                      <select
+                        name="Day"
+                        className={style.down}
+                        ref={date}
+                        onChange={check}
+                      >
                         {days.map((el, i) => (
                           <option value={i + 1} key={i}>
                             {i + 1}
@@ -183,7 +319,12 @@ const Signupform = () => {
                   <div className={style.year}>
                     <div className={style.x}>Year</div>
                     <div className={style.yr}>
-                      <select name="year" className={style.down}>
+                      <select
+                        name="year"
+                        className={style.down}
+                        ref={yearNumber}
+                        onChange={check}
+                      >
                         {year.map((el, i) => (
                           <option value={1901 + i} key={i}>
                             {1901 + i}
@@ -193,7 +334,12 @@ const Signupform = () => {
                     </div>
                   </div>
                 </div>
-                <button type="submit" className={style.button}>
+                <button
+                  type="submit"
+                  className={style.button}
+                  style={{ backgroundColor: isDisabled ? "#82898f" : "white" }}
+                  disabled={isDisabled}
+                >
                   Next
                 </button>
               </div>

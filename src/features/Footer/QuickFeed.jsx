@@ -34,7 +34,10 @@ const ShowMoreButton = styled.div`
 
 const QuickFeed = ({ heading, type }) => {
   const { posts } = useSelector((state) => state.posts);
-  const { users } = useSelector((state) => state.users);
+  const { user } = useSelector((state) => state.user);
+  let { users } = useSelector((state) => state.users);
+  users = users.filter((el) => el.id !== user.id);
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

@@ -16,7 +16,7 @@ const App = () => {
         if (location.pathname !== "/signupform") navigate("/signup");
       }
     } else {
-      if (location.pathname === "/home") {
+      if (location.pathname === "/home" || location.pathname === "/login") {
         navigate("/home");
       }
     }

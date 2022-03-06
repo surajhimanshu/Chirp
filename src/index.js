@@ -3,24 +3,17 @@ import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 
-// import App from "./App";
+import App from "./App";
 
 import { store } from "./app/store";
 import "./features/CSS/index.module.css";
-
-// import Youraccount from "./features/Setting&Privacy/Youraccount";
-import Signupform from "./features/Signup/Signupform";
-
-
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
-        {/* <App /> */}
-       {/* <Youraccount/> */}
-       <Signupform/>
+        <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,

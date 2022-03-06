@@ -10,3 +10,7 @@ export const getUsersAPI = createAsyncThunk("fetchUsers", async () => {
   const response = await axios.get(usersUrl);
   return response.data;
 });
+export const signupUserAPI = createAsyncThunk("signupUser", async (payload) => {
+  const response = await axios.post(usersUrl, payload);
+  return response.data;
+});

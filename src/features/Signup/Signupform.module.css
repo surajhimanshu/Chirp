@@ -112,9 +112,8 @@ body {
     font-size: 15px;
     border-radius: 25px;
     border: none;
-    background-color: #878A8C;
-    color: white;
-    font-weight: 700;
+    color: black;
+    /* font-weight: 700; */
     position: relative;
     bottom: 25px;
 }
