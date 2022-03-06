@@ -35,7 +35,7 @@ const SearchBar = () => {
   const debounceVerion = useCallback(debounce(handleChange));
 
   const handleClick = (el) => {
-    navigate(`/${el.id}`);
+    navigate(`/profile/${el.userName}`);
   };
 
   return (
@@ -52,7 +52,7 @@ const SearchBar = () => {
       </div>
       {valInput && search?.length > 0 && (
         <div className={styles.suggestion_container}>
-          {search?.map((el, i) => {
+          {search?.slice(0,4).map((el, i) => {
             let name = el.name;
             return name.toLowerCase().includes(valInput.toLowerCase()) ? (
               <div

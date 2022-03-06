@@ -1,13 +1,12 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { postsUrl, usersUrl } from "../DataApi/data.selectors";
 
 // get  individual USER via userName and in profile.slice.js it's individualUserProfile
 export const getIndividualUserProfileApi = createAsyncThunk(
   "users/profile",
   async (username) => {
-    const response = await axios.get(
-      `http://localhost:3000/users/?userName=${username}`
-    );
+    const response = await axios.get(`${usersUrl}?userName=${username}`);
     return response.data;
   }
 );
@@ -16,22 +15,17 @@ export const getIndividualUserProfileApi = createAsyncThunk(
 export const getIndividualUserPostsApi = createAsyncThunk(
   "users/post",
   async (username) => {
-    const response = await axios.get(
-      `http://localhost:3000/posts/?username=${username}`
-    );
+    const response = await axios.get(`${postsUrl}?username=${username}`);
     return response.data;
   }
 );
-
 
 // get post by category via category name(ex - foryou, trending,sports,etc) and in profile.slice.js it's categoryPosts
 
 export const getCategoryPostsApi = createAsyncThunk(
   "category/post",
   async (categoryName) => {
-    const response = await axios.get(
-      `http://localhost:3000/posts/?category=${categoryName}`
-    );
+    const response = await axios.get(`${postsUrl}?category=${categoryName}`);
     return response.data;
   }
 );

@@ -1,5 +1,5 @@
 .profile_wrapper{
-    width: 450px;
+    /* width: 450px; */
     margin: auto;
     position: relative;
     border:0.5px solid rgb(220, 210, 210);
@@ -37,7 +37,7 @@
     border-radius: 50%;
     top:50%;
     left: 4%;
-    width: 30%;
+    width: 20%;
 }
 .descript_container{
     margin-left: 3%;

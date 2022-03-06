@@ -1,25 +1,24 @@
 import React from "react";
-import {Link, Outlet} from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 
 import styles from "./explore.module.css";
-import SearchBar from "../../features/Search/SearchBar";
-import { AiOutlineSetting} from "react-icons/ai";
+import { AiOutlineSetting } from "react-icons/ai";
 
 const Explore = () => {
   return (
     <div className={styles.explore_wrapper}>
       {/* <div className={styles.searchbar_wrapper}> */}
-        
-        {/* <AiOutlineSetting /> */}
+
+      {/* <AiOutlineSetting /> */}
       {/* </div> */}
-      <SearchBar/>
+
       <div className={styles.explore_section_wrapper}>
-            <Link to="/explore">For you</Link>
-            <Link to="covid19">COVID-19</Link>
-            <Link to="trending">Trending</Link>
-            <Link to="news">News</Link>
-            <Link to="sports">Sports</Link>
-            <Link to="entertainment">Entertainment</Link>
+        <Link to="">For you</Link>
+        <Link to="covid19">COVID-19</Link>
+        <Link to="trending">Trending</Link>
+        <Link to="news">News</Link>
+        <Link to="sports">Sports</Link>
+        <Link to="entertainment">Entertainment</Link>
       </div>
       <Outlet />
     </div>

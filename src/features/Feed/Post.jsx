@@ -2,9 +2,8 @@ import style from "./feed.module.css";
 import { FaRegComment, FaRetweet, FaBookmark } from "react-icons/fa";
 import { BsFillHeartFill } from "react-icons/bs";
 import { useEffect, useState } from "react";
-import React, { useContext } from "react";
+import React from "react";
 
-import { AuthContext } from "../../Contextprovider/Context";
 import { useDispatch, useSelector } from "react-redux";
 import {
   deleteBookmarksAPI,
@@ -101,7 +100,7 @@ const Post = ({ element }) => {
               >
                 <div className={style.counts}>
                   <BsFillHeartFill color={!toggle ? "red" : ""} />{" "}
-                  {`${element.likes + toggle ? 0 : 1}`}
+                  {Number(element.likes + (!toggle ? 1 : 0))}
                 </div>
               </div>
               <div
