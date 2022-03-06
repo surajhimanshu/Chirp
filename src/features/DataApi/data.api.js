@@ -12,6 +12,15 @@ export const getPostsAPI = createAsyncThunk("fetchPosts", async () => {
   return response.data;
 });
 
+export const postPostAPI = createAsyncThunk(
+  "postTweet",
+  async (payload, thunkAPI) => {
+    const response = await axios.post(postsUrl, payload);
+    thunkAPI.dispatch(getPostsAPI());
+    return response.data;
+  }
+);
+
 export const getUsersAPI = createAsyncThunk("fetchUsers", async () => {
   const response = await axios.get(usersUrl);
   return response.data;
