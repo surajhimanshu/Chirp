@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import style from "./Signupform.module.css";
 
@@ -8,9 +8,17 @@ import { useNavigate } from "react-router-dom";
 
 const Signupform = () => {
   const navigate = useNavigate();
+
+  const name = useRef();
+  const userName = useRef();
+  const phone = useRef();
+  const month = useRef();
+  const date = useRef();
+  const yearNumber = useRef();
+
   //   const [day, setday] = useState(31);
   const [days, setdays] = useState([]);
-  const month = useRef();
+  const [isDisabled, setIsDisabled] = useState(true);
 
   const [email, setemail] = useState("Email");
   const [Phone, setphone] = useState("Phone");
@@ -18,6 +26,19 @@ const Signupform = () => {
   let year = new Array(122).fill(1);
 
   const [data, setdata] = useState({});
+
+  const check = () => {
+    if (
+      name.current.querySelector("div").querySelector("input").value &&
+      userName.current.querySelector("div").querySelector("input").value &&
+      phone.current.querySelector("div").querySelector("input").value &&
+      month.current.value &&
+      date.current.value &&
+      yearNumber.current.value
+    ) {
+      setIsDisabled(false);
+    }
+  };
 
   let Submit = (e) => {
     e.preventDefault();
@@ -97,6 +118,8 @@ const Signupform = () => {
                   helperText=""
                   id="demo-helper-text-aligned"
                   label="Name"
+                  onChange={check}
+                  ref={name}
                 />
               </Box>
 
@@ -116,6 +139,8 @@ const Signupform = () => {
                   helperText=""
                   id="demo-helper-text-aligned"
                   label="UserName"
+                  onChange={check}
+                  ref={userName}
                 />
               </Box>
 
@@ -136,6 +161,8 @@ const Signupform = () => {
                   helperText=""
                   id="demo-helper-text-aligned"
                   label={Phone}
+                  onChange={check}
+                  ref={phone}
                 />
               </Box>
 
@@ -156,7 +183,10 @@ const Signupform = () => {
                       <select
                         name="month"
                         className={style.down}
-                        onChange={Month}
+                        onChange={() => {
+                          Month();
+                          check();
+                        }}
                         ref={month}
                       >
                         <option value=" ">&nbsp;&nbsp;&nbsp;&nbsp;</option>
@@ -179,7 +209,12 @@ const Signupform = () => {
                   <div className={style.Day}>
                     <div className={style.x}> Day</div>
                     <div className={style.number}>
-                      <select name="Day" className={style.down}>
+                      <select
+                        name="Day"
+                        className={style.down}
+                        ref={date}
+                        onChange={check}
+                      >
                         {days.map((el, i) => (
                           <option value={i + 1} key={i}>
                             {i + 1}
@@ -192,7 +227,12 @@ const Signupform = () => {
                   <div className={style.year}>
                     <div className={style.x}>Year</div>
                     <div className={style.yr}>
-                      <select name="year" className={style.down}>
+                      <select
+                        name="year"
+                        className={style.down}
+                        ref={yearNumber}
+                        onChange={check}
+                      >
                         {year.map((el, i) => (
                           <option value={1901 + i} key={i}>
                             {1901 + i}
@@ -202,7 +242,12 @@ const Signupform = () => {
                     </div>
                   </div>
                 </div>
-                <button type="submit" className={style.button}>
+                <button
+                  type="submit"
+                  className={style.button}
+                  style={{ backgroundColor: isDisabled ? "#82898f" : "white" }}
+                  disabled={isDisabled}
+                >
                   Next
                 </button>
               </div>
