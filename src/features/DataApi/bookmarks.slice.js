@@ -1,5 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getBookmarksAPI } from "./data.api";
+import {
+  deleteBookmarksAPI,
+  getBookmarksAPI,
+  postBookmarksAPI,
+} from "./data.api";
 
 const bookmarksSlice = createSlice({
   name: "Bookmarks",
@@ -18,7 +22,15 @@ const bookmarksSlice = createSlice({
 
       .addCase(getBookmarksAPI.rejected, (state) => {
         state.bookmarks = [];
-      });
+      })
+
+      .addCase(postBookmarksAPI.pending, () => {})
+      .addCase(postBookmarksAPI.fulfilled, () => {})
+      .addCase(postBookmarksAPI.rejected, () => {})
+
+      .addCase(deleteBookmarksAPI.pending, () => {})
+      .addCase(deleteBookmarksAPI.fulfilled, () => {})
+      .addCase(deleteBookmarksAPI.rejected, () => {});
   },
 });
 

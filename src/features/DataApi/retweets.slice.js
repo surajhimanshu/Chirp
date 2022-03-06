@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getRetweetsAPI } from "./data.api";
+import { deleteRetweetsAPI, getRetweetsAPI, postRetweetsAPI } from "./data.api";
 
 const retweetsSlice = createSlice({
   name: "Retweets",
@@ -18,7 +18,15 @@ const retweetsSlice = createSlice({
 
       .addCase(getRetweetsAPI.rejected, (state) => {
         state.retweets = [];
-      });
+      })
+
+      .addCase(postRetweetsAPI.pending, () => {})
+      .addCase(postRetweetsAPI.fulfilled, () => {})
+      .addCase(postRetweetsAPI.rejected, () => {})
+
+      .addCase(deleteRetweetsAPI.pending, () => {})
+      .addCase(deleteRetweetsAPI.fulfilled, () => {})
+      .addCase(deleteRetweetsAPI.rejected, () => {});
   },
 });
 

@@ -30,7 +30,7 @@ const Home = () => {
         <span className={Styles.homeText}>Home</span>
       </div>
       <TweetBox visibility={false} />
-      {/* <Feed /> */}
+      <Feed />
     </div>
   );
 };

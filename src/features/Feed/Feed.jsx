@@ -16,7 +16,6 @@ const Feed = () => {
         "...Loading"
       ) : (
         <div>
-          <TweetBox />
           {posts.map((element) => {
             return <Component element={element} key={element.id} />;
           })}
