@@ -31,19 +31,14 @@ const ShowMoreButton = styled.div`
 `;
 
 const QuickFeed = ({ heading, type }) => {
+  const navigate = useNavigate();
   const { posts } = useSelector((state) => state.posts);
   const { user } = useSelector((state) => state.user);
   let { users } = useSelector((state) => state.users);
   users = users.filter((el) => el.id !== user.id);
 
-  const navigate = useNavigate();
-
   return (
-    <Wrapper
-      onClick={() => {
-        navigate("/explore");
-      }}
-    >
+    <Wrapper>
       <Heading>{heading}</Heading>
       {type === "posts" ? (
         <>
@@ -57,7 +52,9 @@ const QuickFeed = ({ heading, type }) => {
           <Article data={users[2]} type={type} />
         </>
       )}
-      <ShowMoreButton>Show more</ShowMoreButton>
+      <ShowMoreButton onClick={() => navigate("/explore")}>
+        Show more
+      </ShowMoreButton>
     </Wrapper>
   );
 };

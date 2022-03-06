@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const ArticleWrapper = styled.div`
@@ -70,6 +71,8 @@ const UserName = styled.div`
   letter-spacing: 0.6px;
 `;
 const QuickFeedArticle = ({ data, type }) => {
+  const navigate = useNavigate();
+
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     setIsLoading(data ? false : true);
@@ -83,12 +86,20 @@ const QuickFeedArticle = ({ data, type }) => {
         <ArticleWrapper>
           {data ? (
             type === "posts" ? (
-              <Article>
+              <Article
+                onClick={() => {
+                  navigate("/explore");
+                }}
+              >
                 <Tweet>{data.tweet}</Tweet>
                 {data.image ? <Image src={data.image} /> : "..."}
               </Article>
             ) : (
-              <Article>
+              <Article
+                onClick={() => {
+                  navigate(`/profile/${data.userName}`);
+                }}
+              >
                 <User>
                   <Avatar src={data.avatar} />
                   <div>
