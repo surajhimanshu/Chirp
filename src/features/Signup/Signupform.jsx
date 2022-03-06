@@ -190,7 +190,8 @@ const Signupform = () => {
             </div>
             <div></div>
           </div>
-          <h2>Create your account</h2>
+          <div className={style.h2}> <h2>Create your account</h2></div>
+         
 
           <form action="" onSubmit={Submit}>
             <div className={style.form}>
@@ -215,11 +216,13 @@ const Signupform = () => {
                 />
               </Box>
 
+
+
               <Box
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  "& > :not(style)": { mt: 2 },
+                  "& > :not(style)": { mt: 1 },
                 }}
               >
                 <TextField
@@ -236,12 +239,59 @@ const Signupform = () => {
                 />
               </Box>
 
+
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  "& > :not(style)": { mt: 1},
+                }}
+              >
+                <TextField
+                  InputLabelProps={{
+                    style: { color: "rgba(255, 255, 255, 0.5)" },
+                  }}
+                  className={style.name}
+                  name="gender"
+                  helperText=""
+                  id="demo-helper-text-aligned"
+                  label="Gender"
+                  onChange={check}
+                  ref={name}
+                />
+              </Box>
+
+
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  "& > :not(style)": { mt: 1},
+                }}
+              >
+                <TextField
+                  InputLabelProps={{
+                    style: { color: "rgba(255, 255, 255, 0.5)" },
+                  }}
+                  className={style.name}
+                  name="password"
+                  helperText=""
+                  id="demo-helper-text-aligned"
+                  label="Password"          onChange={check}
+                  ref={name}
+                />
+              </Box>
+
+
+
+              
+
               <Box
                 sx={{
                   color: "white",
                   display: "flex",
                   alignItems: "center",
-                  "& > :not(style)": { mt: 2, color: "white" },
+                  "& > :not(style)": { mt: 1, color: "white" },
                 }}
               >
                 <TextField
@@ -264,10 +314,7 @@ const Signupform = () => {
               </div>
               <div className="DOB">
                 <strong>Date of birth</strong>
-                <p className={style.p}>
-                  This will not be shown publicly. Confirm your own age,even if
-                  this account is for a business, a pet, or something else.
-                </p>
+                
                 <div className={style.date}>
                   <div className={style.month}>
                     <div className={style.x}> Month</div>
