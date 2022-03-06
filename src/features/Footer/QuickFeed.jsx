@@ -1,9 +1,7 @@
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { getPostsAPI, getUsersAPI } from "../DataApi/data.api";
 import Article from "./QuickFeedArticle";
 
 const Wrapper = styled.div`
@@ -37,14 +35,8 @@ const QuickFeed = ({ heading, type }) => {
   const { user } = useSelector((state) => state.user);
   let { users } = useSelector((state) => state.users);
   users = users.filter((el) => el.id !== user.id);
-  
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(getPostsAPI());
-    dispatch(getUsersAPI());
-  }, [dispatch]);
+  const navigate = useNavigate();
 
   return (
     <Wrapper

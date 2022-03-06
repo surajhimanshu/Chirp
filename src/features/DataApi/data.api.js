@@ -1,6 +1,11 @@
 import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { postsUrl, usersUrl } from "./data.selectors";
+import {
+  bookmarksUrl,
+  postsUrl,
+  retweetsUrl,
+  usersUrl,
+} from "./data.selectors";
 
 export const getPostsAPI = createAsyncThunk("fetchPosts", async () => {
   const response = await axios.get(postsUrl);
@@ -12,5 +17,13 @@ export const getUsersAPI = createAsyncThunk("fetchUsers", async () => {
 });
 export const signupUserAPI = createAsyncThunk("signupUser", async (payload) => {
   const response = await axios.post(usersUrl, payload);
+  return response.data;
+});
+export const getRetweetsAPI = createAsyncThunk("fetchRetweets", async () => {
+  const response = await axios.get(retweetsUrl);
+  return response.data;
+});
+export const getBookmarksAPI = createAsyncThunk("fetchBookmarks", async () => {
+  const response = await axios.get(bookmarksUrl);
   return response.data;
 });

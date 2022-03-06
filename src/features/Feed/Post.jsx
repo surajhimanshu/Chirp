@@ -5,11 +5,15 @@ import { useEffect, useState } from "react";
 import React, { useContext } from 'react'
 
 import  { AuthContext } from "../../Contextprovider/Context"
+import { useSelector } from "react-redux";
 
 
 
 const Post = ({ element}) => {
-  const {userdata,getposts,getbookmark,bookmarkdata,tweets,getTweets} = useContext(AuthContext);
+  const {getposts,getbookmark,bookmarkdata,tweets,getTweets} = useContext(AuthContext);
+
+  // let { posts } = useSelector((state) => state.posts);
+
   const [isLoading, setIsLoading] = useState(true);
   // const[obj,setobj]= useState({})
   const [toggle,setToggle] =useState(true)
@@ -17,16 +21,10 @@ const Post = ({ element}) => {
 
 
 
-   
-
-  const temp = userdata.filter(
-    ({ userName }) => userName === element.username
-  )[0];
-
   useEffect(() => {
-    setIsLoading(temp ? false : true);
-    // console.log("bsdhshj", temp, isLoading);
-  }, [temp, setIsLoading, isLoading]);
+    setIsLoading(element ? false : true);
+  }, [element, setIsLoading]);
+
 
   let post = async (obj,) => {
     try {
@@ -116,12 +114,12 @@ const Post = ({ element}) => {
       ) : (
         <div className={style.main}>
           <div>
-            <img src={temp.avatar} alt="" className={style.img} />
+            <img src={element.avatar} alt="" className={style.img} />
           </div>
 
           <div className={style.details}>
             <div className="name">
-              <strong> {temp.name}</strong> &nbsp;{temp.userName}
+              <strong> {element.name}</strong> &nbsp;{element.userName}
             </div>
             <div className={style.comment}>
               <h3>{element.tweet}</h3>
