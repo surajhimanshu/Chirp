@@ -7,7 +7,10 @@ import { BrowserRouter } from "react-router-dom";
 
 import { store } from "./app/store";
 import "./features/CSS/index.module.css";
+
+// import Youraccount from "./features/Setting&Privacy/Youraccount";
 import Signupform from "./features/Signup/Signupform";
+
 
 
 
@@ -16,7 +19,8 @@ ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter>
         {/* <App /> */}
-        <Signupform/>
+       {/* <Youraccount/> */}
+       <Signupform/>
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
