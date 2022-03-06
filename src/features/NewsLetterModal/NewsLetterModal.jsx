@@ -1,19 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./newslettermodal.module.css";
 import { IoMdClose } from "react-icons/io";
+import { useNavigate } from "react-router-dom";
 
 const NewsLetterModal = () => {
-  const [openNewsLetterModal, setOpenNewsLetterModal] = useState(false);
-  const handleCloseNewsLetterModal = () => {
-    setOpenNewsLetterModal(false);
-  };
+  const navigate = useNavigate();
   return (
-    <div
-      className={styles.modal_wrapper}
-      style={{ opacity: openNewsLetterModal ? "1" : "0" }}
-    >
+    <div className={styles.modal_wrapper}>
       <div className={styles.modal_content}>
-        <div onClick={handleCloseNewsLetterModal} className={styles.close}>
+        <div onClick={() => navigate("/")} className={styles.close}>
           <IoMdClose />
         </div>
 
@@ -44,7 +39,7 @@ const NewsLetterModal = () => {
         </div>
 
         <div className={styles.modal_button}>
-          <button>Find out more</button>
+          <button onClick={() => navigate("/explore")}>Find out more</button>
         </div>
       </div>
     </div>

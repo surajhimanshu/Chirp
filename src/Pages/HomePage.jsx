@@ -6,6 +6,7 @@ import Styles from "../features/CSS/homepage.module.css";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import ExplorePage from "./ExplorePage";
 import ErrorPage from "./ErrorPage";
+import ListsPage from "./ListsPage";
 
 const HomePage = () => {
   const location = useLocation();
@@ -22,7 +23,8 @@ const HomePage = () => {
       <Menu />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/explore*" element={<ExplorePage />} />
+        <Route path="/explore/*" element={<ExplorePage />} />
+        <Route path="/lists" element={<ListsPage />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
       <Footer />
