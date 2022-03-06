@@ -42,10 +42,10 @@
     font-weight: 500;
     font-size: 18px;
 }
-.twittersignup .sociallogin1:hover{
+/* .twittersignup .sociallogin1:hover{
     background-color: #d7e1e9; 
     cursor: pointer;
- }
+ } */
 
 .twittersignup .sociallogin2 {
     border: 1px solid silver;
@@ -61,6 +61,7 @@
     font-weight: 500;
     font-size: 18px;
     width: 60%;
+    cursor: pointer;
 }
 
 
