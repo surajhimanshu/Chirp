@@ -1,22 +1,28 @@
-import React, { useContext } from 'react'
-import Component from './Post';
-import  { AuthContext } from "../../Contextprovider/Context"
-import TweetBox from "./../Home/TweetBox"
+import React, { useEffect, useState } from "react";
+import Component from "./Post";
+import TweetBox from "./../Home/TweetBox";
+import { useSelector } from "react-redux";
 const Feed = () => {
- const {postdata} = useContext(AuthContext);
+  const { posts } = useSelector((state) => state.posts);
+  const [isLoading, setIsLoading] = useState(true);
 
-   
-
+  useEffect(() => {
+    setIsLoading(posts ? false : true);
+  }, [posts]);
 
   return (
-    <div>
-       <TweetBox />
-      {postdata.map(element=>{
-        return   <Component element={element} key={element.id}/>
-      })}
-     
-    </div>
-  )
-}
+    <>
+      {isLoading ? (
+        "...Loading"
+      ) : (
+        <div>
+          {posts.map((element) => {
+            return <Component element={element} key={element.id} />;
+          })}
+        </div>
+      )}
+    </>
+  );
+};
 
-export default Feed
+export default Feed;
