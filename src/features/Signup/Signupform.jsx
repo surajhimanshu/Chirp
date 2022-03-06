@@ -15,6 +15,8 @@ const Signupform = () => {
   const name = useRef();
   const userName = useRef();
   const phone = useRef();
+  const password = useRef();
+  const gender = useRef();
   const month = useRef();
   const date = useRef();
   const yearNumber = useRef();
@@ -35,7 +37,9 @@ const Signupform = () => {
       phone.current.querySelector("div").querySelector("input").value &&
       month.current.value &&
       date.current.value &&
-      yearNumber.current.value
+      yearNumber.current.value &&
+      password.current.querySelector("div").querySelector("input").value &&
+      gender.current.querySelector("div").querySelector("input").value
     ) {
       setIsDisabled(false);
     } else {
@@ -61,7 +65,7 @@ const Signupform = () => {
       phoneNo: "",
       gender: "",
       avatar: "https://reqres.in/img/faces/7-image.jpg",
-      location: "",
+      location: "india",
       joined: today,
       workPlace: "",
       cover:
@@ -141,8 +145,16 @@ const Signupform = () => {
       dob: `${date.current.value}${newMonth}${yearNumber.current.value}`,
     };
     payload = { ...payload, ...query };
+    query = {
+      password: password.current.querySelector("div").querySelector("input")
+        .value,
+    };
+    payload = { ...payload, ...query };
+    query = {
+      gender: gender.current.querySelector("div").querySelector("input").value,
+    };
+    payload = { ...payload, ...query };
     query = {};
-
     const signupAction = signupUserAPI(payload);
     dispatch(signupAction);
     navigate("/login");
@@ -190,8 +202,10 @@ const Signupform = () => {
             </div>
             <div></div>
           </div>
-          <div className={style.h2}> <h2>Create your account</h2></div>
-         
+          <div className={style.h2}>
+            {" "}
+            <h2>Create your account</h2>
+          </div>
 
           <form action="" onSubmit={Submit}>
             <div className={style.form}>
@@ -216,8 +230,6 @@ const Signupform = () => {
                 />
               </Box>
 
-
-
               <Box
                 sx={{
                   display: "flex",
@@ -239,12 +251,11 @@ const Signupform = () => {
                 />
               </Box>
 
-
               <Box
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  "& > :not(style)": { mt: 1},
+                  "& > :not(style)": { mt: 1 },
                 }}
               >
                 <TextField
@@ -257,16 +268,15 @@ const Signupform = () => {
                   id="demo-helper-text-aligned"
                   label="Gender"
                   onChange={check}
-                  ref={name}
+                  ref={gender}
                 />
               </Box>
-
 
               <Box
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  "& > :not(style)": { mt: 1},
+                  "& > :not(style)": { mt: 1 },
                 }}
               >
                 <TextField
@@ -277,14 +287,11 @@ const Signupform = () => {
                   name="password"
                   helperText=""
                   id="demo-helper-text-aligned"
-                  label="Password"          onChange={check}
-                  ref={name}
+                  label="Password"
+                  onChange={check}
+                  ref={password}
                 />
               </Box>
-
-
-
-              
 
               <Box
                 sx={{
@@ -314,7 +321,7 @@ const Signupform = () => {
               </div>
               <div className="DOB">
                 <strong>Date of birth</strong>
-                
+
                 <div className={style.date}>
                   <div className={style.month}>
                     <div className={style.x}> Month</div>
