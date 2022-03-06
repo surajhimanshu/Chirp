@@ -30,10 +30,10 @@
 
 .suggestion_container {
   width: 100%;
-  background: #fff;
+  background: #15202B;
   border-radius: 5px;
   min-height: 100px;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   margin-top: 10px;
   margin-left: 4px;
   position: absolute;
