@@ -35,7 +35,7 @@ const SearchBar = () => {
   const debounceVerion = useCallback(debounce(handleChange));
 
   const handleClick = (el) => {
-    navigate(`/${el.id}`);
+    navigate(`/profile/${el.userName}`);
   };
 
   return (
