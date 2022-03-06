@@ -27,7 +27,8 @@ const Signupform = () => {
         phone:e.target.Phone.value,
         month:e.target.month.value,
         day:e.target.Day.value,
-        year:e.target.year.value
+        year:e.target.year.value,
+        username:e.target.username.value
       }
      setdata(obj)
    
@@ -100,6 +101,25 @@ const Signupform = () => {
       />
      
     </Box>
+      
+     
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        '& > :not(style)': {mt:2 },
+      }}
+    >
+      <TextField className={style.name}
+        name="username"
+        helperText=""
+        id="demo-helper-text-aligned"
+        label="UserName"
+      />
+     
+    </Box>
+
+
 
     <Box
       sx={{
@@ -129,7 +149,7 @@ const Signupform = () => {
             <div className={style.date}>
 
               <div className={style.month}>
-                <div> Month</div>
+                <div className={style.x}> Month</div>
                 <div className={style.down}>
                 <select name="month" className={style.down} onChange={Month} ref={month}>
                   <option value=" ">&nbsp;&nbsp;&nbsp;&nbsp;</option>
@@ -148,8 +168,10 @@ const Signupform = () => {
                 </select>
                 </div>
               </div>
+
+
               <div className={style.Day}>
-                <div> Day</div>
+                <div className={style.x}> Day</div>
                 <div className={style.number}>
                   <select name="Day" className={style.down}>
                     {days.map((el, i) => (
@@ -160,8 +182,10 @@ const Signupform = () => {
                   </select>
                 </div>
               </div>
+
+              
               <div className={style.year }>
-                <div>Year</div>
+                <div className={style.x}>Year</div>
                 <div className={style.yr}>
                   <select name="year" className={style.down}>
                     {year.map((el, i) => (

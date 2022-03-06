@@ -31,7 +31,7 @@
   color: #1D9BF0; 
   margin: 25px 0 25px 0  ;
   cursor: pointer;
-  
+   width: fit-content;
 
 }
 .link:hover{
@@ -43,17 +43,23 @@ margin-top: 0;
 color: grey;
 }
 .down{
+    background-color: #15202B;
     margin-top: 5px;
     margin-right: 5px;
     border: none; 
     width: 100%;
     outline: none;
+    font-size: 20px;
+   
 }
 
 .date{
     display: flex;
     gap: 10px;
 }
+
+
+
 .month{
     border: 1px solid grey;
     border-radius: 5px;
@@ -74,7 +80,7 @@ color: grey;
 }
 .button{
     width: 100%;
-    margin-top: 120px;
+    margin-top: 50px;
     height: 40px;
   font-size: 15px;
   border-radius: 25px;
@@ -84,5 +90,9 @@ color: grey;
   font-weight:700;
 }
 .name{
+    
     width: 100%;
+}
+.x{
+    padding-left: 6px;
 }
