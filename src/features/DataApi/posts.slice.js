@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getPostsAPI } from "./data.api";
+import { getPostsAPI, postPostAPI } from "./data.api";
 
 const postsSlice = createSlice({
   name: "posts",
@@ -18,7 +18,11 @@ const postsSlice = createSlice({
 
       .addCase(getPostsAPI.rejected, (state) => {
         state.posts = [];
-      });
+      })
+
+      .addCase(postPostAPI.pending, (state) => {})
+      .addCase(postPostAPI.fulfilled, (state) => {})
+      .addCase(postPostAPI.rejected, (state) => {});
   },
 });
 // export const { getData } = postsSlice.actions;

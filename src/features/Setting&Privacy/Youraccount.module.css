@@ -1,42 +1,45 @@
-
-.body{
+.body {
     padding: 10px;
 }
 
-.icon{
+.icon {
     margin-right: 30px;
     margin-top: 20px;
 }
-.youraccount{
+
+.youraccount {
     display: flex;
     text-align: center;
     align-items: center;
     gap: 50px;
 }
-.top{
+
+.top {
     margin-top: 7px;
 }
-.p{
+
+.p {
     margin-top: -25px;
-    font-size: small;  
+    font-size: small;
     color: grey;
 }
 
-.part{
+.part {
     display: flex;
-     align-items: center;   
+    align-items: center;
+    cursor: pointer;
 }
 
 
-.mid{
+.mid {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
 }
-@media only screen and (min-width: 992px) {
-    .top{
-      display: none;
-    }
- }
 
+@media only screen and (min-width: 992px) {
+    .top {
+        display: none;
+    }
+}

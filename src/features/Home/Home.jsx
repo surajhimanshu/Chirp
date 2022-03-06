@@ -1,25 +1,11 @@
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getBookmarksAPI,
-  getPostsAPI,
-  getRetweetsAPI,
-  getUsersAPI,
-} from "../DataApi/data.api";
+import { useSelector } from "react-redux";
 import Feed from "../Feed/Feed";
 import Styles from "./home.module.css";
 import TweetBox from "./TweetBox";
 
 const Home = () => {
   const { avatar } = useSelector((state) => state.user.user);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getPostsAPI());
-    dispatch(getUsersAPI());
-    dispatch(getBookmarksAPI());
-    dispatch(getRetweetsAPI());
-  }, [dispatch]);
 
   return (
     <div className={Styles.feed}>

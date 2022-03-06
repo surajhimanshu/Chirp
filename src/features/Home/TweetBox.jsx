@@ -2,7 +2,8 @@ import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { MdOutlineImage } from "react-icons/md";
 import { css } from "styled-components";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { postPostAPI } from "../DataApi/data.api";
 
 const ComposeWrapper = styled.div`
   margin-top: 4px;
@@ -12,6 +13,7 @@ const ComposeWrapper = styled.div`
   margin-bottom: 4px;
   display: flex;
   box-sizing: border-box;
+  z-index: 1;
   // outline: 1px solid red;
   ${(props) =>
     props.primary &&
@@ -38,6 +40,7 @@ const InputWrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  z-index: 1;
 `;
 const Input = styled.input`
   background-color: transparent;
@@ -62,6 +65,7 @@ const MediaInputWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  z-index: 1;
 `;
 const FileInputButton = styled.button`
   background-color: transparent;
@@ -117,8 +121,35 @@ const Close = styled.button`
 const TweetBox = ({ visibility }) => {
   const hiddenFileInput = useRef();
   const image = useRef();
+  const tweet = useRef();
+  const dispatch = useDispatch();
   const [showImage, setShowImage] = useState(false);
+
   const user = useSelector((state) => state.user.user);
+
+  const sendTweet = () => {
+    let today = new Date();
+    let dd = String(today.getDate()).padStart(2, "0");
+    let mm = String(today.getMonth() + 1).padStart(2, "0");
+    let yyyy = today.getFullYear();
+    today = dd + mm + yyyy;
+    const payload = {
+      name: user.name,
+      avatar: user.avatar,
+      username: user.userName,
+      tweet: tweet.current.value,
+      image: image.current ? "https://source.unsplash.com/random" : "",
+      video: "",
+      date: today,
+      likes: 0,
+      retweets: 0,
+      comments: [],
+      category: "",
+      content: "",
+    };
+    const sendTweetAction = postPostAPI(payload);
+    dispatch(sendTweetAction);
+  };
 
   const handleClick = () => {
     hiddenFileInput.current.click();
@@ -150,7 +181,7 @@ const TweetBox = ({ visibility }) => {
         <Avatar src={user.avatar} alt="" />
       </AvatarWrapper>
       <InputWrapper>
-        <Input type="text" placeholder="What's happening?" />
+        <Input type="text" placeholder="What's happening?" ref={tweet} />
         {showImage ? (
           <ImagePreviewWrapper>
             <ImagePreview ref={image} />
@@ -170,7 +201,7 @@ const TweetBox = ({ visibility }) => {
             onChange={handleChange}
             style={{ display: "none" }}
           />
-          <SendTweet disabled={true}>Tweet</SendTweet>
+          <SendTweet onClick={sendTweet}>Tweet</SendTweet>
         </MediaInputWrapper>
       </InputWrapper>
     </ComposeWrapper>
