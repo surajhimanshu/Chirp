@@ -85,10 +85,13 @@ const Signupform = () => {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  "& > :not(style)": { },
+                  "& > :not(style)": {},
                 }}
               >
                 <TextField
+                  InputLabelProps={{
+                    style: { color: "rgba(255, 255, 255, 0.5)" },
+                  }}
                   className={style.name}
                   name="name"
                   helperText=""
@@ -105,6 +108,9 @@ const Signupform = () => {
                 }}
               >
                 <TextField
+                  InputLabelProps={{
+                    style: { color: "rgba(255, 255, 255, 0.5)" },
+                  }}
                   className={style.name}
                   name="username"
                   helperText=""
@@ -113,15 +119,18 @@ const Signupform = () => {
                 />
               </Box>
 
-              <Box   
+              <Box
                 sx={{
-                  color:"white",
+                  color: "white",
                   display: "flex",
                   alignItems: "center",
-                  "& > :not(style)": { mt: 2 , color:"white"},
+                  "& > :not(style)": { mt: 2, color: "white" },
                 }}
               >
                 <TextField
+                  InputLabelProps={{
+                    style: { color: "rgba(255, 255, 255, 0.5)" },
+                  }}
                   className={style.name}
                   name={Phone}
                   helperText=""
