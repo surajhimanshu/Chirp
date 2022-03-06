@@ -85,7 +85,7 @@ const Signupform = () => {
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  "& > :not(style)": {},
+                  "& > :not(style)": { },
                 }}
               >
                 <TextField
@@ -113,11 +113,12 @@ const Signupform = () => {
                 />
               </Box>
 
-              <Box
+              <Box   
                 sx={{
+                  color:"white",
                   display: "flex",
                   alignItems: "center",
-                  "& > :not(style)": { mt: 2 },
+                  "& > :not(style)": { mt: 2 , color:"white"},
                 }}
               >
                 <TextField
