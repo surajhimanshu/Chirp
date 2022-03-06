@@ -4,14 +4,16 @@ import SignupPage from "./Pages/SignupPage";
 import LoginPage from "./Pages/LoginPage";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import Signupform from "./features/Signup/Signupform";
+
 const App = () => {
   const isAuth = useSelector((state) => state.user.isAuth);
   const navigate = useNavigate();
   const location = useLocation();
   useEffect(() => {
     if (!isAuth) {
-      if (location.pathname !== "/signup") {
-        navigate("/login");
+      if (location.pathname !== "/login") {
+        if (location.pathname !== "/signupform") navigate("/signup");
       }
     } else {
       if (location.pathname === "/home") {
@@ -30,9 +32,10 @@ const App = () => {
           </>
         ) : (
           <>
-            <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<SignupPage />} />
-            <Route path="/*" element={<LoginPage />} />
+            <Route path="/signupform" element={<Signupform />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/*" element={<SignupPage />} />
             {/* Open Routes */}
           </>
         )}

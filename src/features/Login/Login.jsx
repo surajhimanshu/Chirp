@@ -19,11 +19,10 @@ const LoginWrapper = styled.div`
   background-color: rgba(91, 112, 131, 0.4);
   height: 100vh;
   width: 100vw;
-  display flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   @media only screen and (max-width: 700px) {
-    background-color: red;
     max-width: 700px;
   }
   `;
