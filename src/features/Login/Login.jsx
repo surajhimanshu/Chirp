@@ -25,7 +25,7 @@ const LoginWrapper = styled.div`
   @media only screen and (max-width: 700px) {
     max-width: 700px;
   }
-  `;
+`;
 
 const LoginComponent = styled.div`
   box-sizing: border-box;
@@ -249,7 +249,7 @@ const Login = () => {
 
             <SignupText>
               Don't have an account?
-              <StyledLink fontSize={16} onClick={toSignup}>
+              <StyledLink fontSize={16} onClick={() => navigate("/signupform")}>
                 {" "}
                 Sign up
               </StyledLink>

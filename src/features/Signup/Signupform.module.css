@@ -1,98 +1,137 @@
-.main{
-    display: flex;
-   justify-content: space-between;
-   align-items: center;
+body {
+    overflow: hidden;
 }
-.container{
-    padding-left: 50px ;
-    padding-right: 50px ;
-    padding-top: 10px;
+
+.main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.signupWrapper {
+    background-color: rgba(91, 112, 131, 0.4);
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    box-sizing: border-box;
+    padding: 6px 20px;
+    background-color: #15202b;
+    border-radius: 15px;
+    width: 600px;
+    height: 650px;
+    position: relative;
 
 }
-.close{
-     display: flex;
+
+.close {
+    display: flex;
     height: 30px;
     width: 30px;
     border-radius: 50%;
-  align-items: center;
-   justify-content: center;
-    
+    align-items: center;
+    justify-content: center;
+    transition-duration: .2s;
+
 }
-.close:hover{
-    
+
+.close:hover {
+
     background-color: rgb(206, 201, 201);
 
 }
-.main .bird{
+
+.main .bird {
     height: 40px;
 }
 
-.link{
-  color: #1D9BF0; 
-  margin: 25px 0 25px 0  ;
-  cursor: pointer;
-   width: fit-content;
+.link {
+    color: #1D9BF0;
+    margin: 15px 0 15px 0;
+    cursor: pointer;
+    width: fit-content;
 
 }
-.link:hover{
+
+.link:hover {
     text-decoration: underline;
 }
 
-.p{
-margin-top: 0;
-color: grey;
+.p {
+    margin-top: 0;
+    color: grey;
 }
-.down{
+
+.down {
     background-color: #15202B;
     margin-top: 5px;
     margin-right: 5px;
-    border: none; 
+    border: none;
     width: 100%;
     outline: none;
     font-size: 20px;
-   
+
 }
 
-.date{
+.date {
     display: flex;
     gap: 10px;
 }
 
 
 
-.month{
+.month {
     border: 1px solid grey;
     border-radius: 5px;
     width: 40%;
     padding: 3px;
 }
-.Day{
+
+.Day {
     border: 1px solid grey;
     border-radius: 5px;
     width: 25%;
     padding: 3px;
 }
-.year{
+
+.year {
     border: 1px solid grey;
     border-radius: 5px;
     width: 25%;
     padding: 3px;
 }
-.button{
+
+.button {
     width: 100%;
     margin-top: 50px;
     height: 40px;
-  font-size: 15px;
-  border-radius: 25px;
-  border: none;
-  background-color: #878A8C;
-  color: white;
-  font-weight:700;
+    font-size: 15px;
+    border-radius: 25px;
+    border: none;
+    background-color: #878A8C;
+    color: white;
+    font-weight: 700;
+    position: relative;
+    bottom: 25px;
 }
-.name{
-    
+
+.name {
+
     width: 100%;
 }
-.x{
+
+.x {
     padding-left: 6px;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        height: 100vh;
+        width: 100vh;
+        border-radius: 0px;
+    }
 }
