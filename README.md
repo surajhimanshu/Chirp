@@ -9,3 +9,4 @@
 4. Redux
 5. Axios
 6. Fake REST API for data on heroku https://chirp-database.herokuapp.com/
+7. Reduxjs Toolkit
