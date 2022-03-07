@@ -14,15 +14,11 @@ import {
 } from "../DataApi/data.api";
 
 const Post = ({ element }) => {
-  // const { getposts, getbookmark, getTweets } = useContext(AuthContext);
-
-  // let { posts } = useSelector((state) => state.posts);
   const { bookmarks } = useSelector((state) => state.bookmarks);
   const { retweets } = useSelector((state) => state.retweets);
   const dispatch = useDispatch();
 
   const [isLoading, setIsLoading] = useState(true);
-  // const[obj,setobj]= useState({})
   const [toggle, setToggle] = useState(true);
 
   useEffect(() => {

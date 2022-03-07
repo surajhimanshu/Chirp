@@ -2,7 +2,6 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
 import styles from "./explore.module.css";
-import { AiOutlineSetting } from "react-icons/ai";
 
 const Explore = () => {
   return (

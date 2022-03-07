@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux'
 import { getCategoryPostsApi } from '../Profile/profile.api.js';
 import IndividualCategoryInfo from './IndividualCategoryInfo';
-// import styles from "./foryou.module.css";
 
 const Trending = () => {
 
