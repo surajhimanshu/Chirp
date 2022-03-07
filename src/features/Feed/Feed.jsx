@@ -14,7 +14,7 @@ const Feed = () => {
       {isLoading ? (
         "...Loading"
       ) : (
-        <div>
+        <div style={{ display: "flex", flexDirection: "column-reverse" }}>
           {posts.map((element) => {
             return <Component element={element} key={element.id} />;
           })}
