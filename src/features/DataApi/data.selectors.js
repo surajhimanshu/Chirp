@@ -1,4 +1,4 @@
-export const postsUrl = "http://localhost:3000/posts";
-export const usersUrl = "http://localhost:3000/users";
-export const retweetsUrl = "http://localhost:3000/retweets";
-export const bookmarksUrl = "http://localhost:3000/bookmarks";
+export const postsUrl = "https://chirp-database.herokuapp.com/posts";
+export const usersUrl = "https://chirp-database.herokuapp.com/users";
+export const retweetsUrl = "https://chirp-database.herokuapp.com/retweets";
+export const bookmarksUrl = "https://chirp-database.herokuapp.com/bookmarks";
