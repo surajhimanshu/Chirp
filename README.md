@@ -1,5 +1,5 @@
 # Twitter Clone using React
-### by Suraj Himanshu, Sachin, Renaissance, Abhishek
+### by Suraj Himanshu, Sachin, Abhishek
 
 #### Dependencies
 
@@ -10,3 +10,4 @@
 5. Axios
 6. Fake REST API for data on heroku https://chirp-database.herokuapp.com/
 7. Reduxjs Toolkit
+8. Material UI
