@@ -84,7 +84,7 @@
     /* color: red; */
 }
 
-@media only screen and (max-width:1000px) {
+/* @media only screen and (max-width:1000px) {
     .close{
         top: -50px;
         left: -15px;
@@ -94,9 +94,9 @@
         width: 95%;
         background-color: rgb(26, 140, 216);
        font-size: 1rem;
-        min-height: 37px;
+        min-height: 37px; */
        /* color:green; */
-    }
+    /* }
     .modal_title h3{
         font-size: 1.7rem;
     }
@@ -123,4 +123,4 @@
         top: -50px;
         left: -15px;
       }
-}
+} */
