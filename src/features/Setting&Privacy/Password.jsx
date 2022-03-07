@@ -78,7 +78,7 @@ export default function CustomizedInputs() {
             >
               <RedditTextField
                 label="Current Password"
-                type="password"
+                type="text"
                 defaultValue={user.password}
                 id="reddit-input1"
                 variant="filled"
@@ -101,7 +101,7 @@ export default function CustomizedInputs() {
             >
               <RedditTextField
                 label="New Password"
-                type="password"
+                type="text"
                 id="reddit-input2"
                 variant="filled"
                 value={newpassword}
@@ -123,7 +123,7 @@ export default function CustomizedInputs() {
             >
               <RedditTextField
                 label="Confirm Password"
-                type="password"
+                type="text"
                 id="reddit-input3"
                 variant="filled"
                 value={cofirmpassword}

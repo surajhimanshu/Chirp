@@ -4,6 +4,7 @@ import { MdOutlineImage } from "react-icons/md";
 import { css } from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { postPostAPI } from "../DataApi/data.api";
+import { useNavigate } from "react-router-dom";
 
 const ComposeWrapper = styled.div`
   margin-top: 4px;
@@ -125,6 +126,7 @@ const TweetBox = ({ visibility }) => {
   const dispatch = useDispatch();
   const [showImage, setShowImage] = useState(false);
 
+  const navigate = useNavigate();
   const user = useSelector((state) => state.user.user);
 
   const sendTweet = () => {
@@ -149,6 +151,7 @@ const TweetBox = ({ visibility }) => {
     };
     const sendTweetAction = postPostAPI(payload);
     dispatch(sendTweetAction);
+    navigate("/home");
   };
 
   const handleClick = () => {

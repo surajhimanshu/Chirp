@@ -3,6 +3,7 @@ import { useState, useCallback } from "react";
 import styles from "./searchBar.module.css";
 import { useNavigate } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
+import { usersUrl } from "../DataApi/data.selectors";
 
 const SearchBar = () => {
   const [search, setSearch] = useState([]);
@@ -24,7 +25,7 @@ const SearchBar = () => {
   const handleChange = (event) => {
     const q = event.target.value;
     setValInput(q);
-    fetch(`http://localhost:3000/users?q=${q}`)
+    fetch(`${usersUrl}?q=${q}`)
       .then((res) => res.json())
       .then((json) => {
         setSearch(json);
@@ -52,7 +53,7 @@ const SearchBar = () => {
       </div>
       {valInput && search?.length > 0 && (
         <div className={styles.suggestion_container}>
-          {search?.slice(0,4).map((el, i) => {
+          {search?.slice(0, 4).map((el, i) => {
             let name = el.name;
             return name.toLowerCase().includes(valInput.toLowerCase()) ? (
               <div
@@ -72,7 +73,7 @@ const SearchBar = () => {
                     }}
                   />
                   <div>
-                    <div style={{ color: "black" }}>{el.name}</div>
+                    <div style={{ color: "inherit" }}>{el.name}</div>
                     <div style={{ color: "grey" }}>{el.userName}</div>
                   </div>
                 </div>

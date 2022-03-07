@@ -20,7 +20,7 @@ const Profile = () => {
 
   const profile = useSelector((state) => state.profile.individualUserProfile);
   const posts = useSelector((state) => state.profile.individualUserPosts);
-
+  const {retweets} = useSelector((state) => state.retweets);
   //for getting individualUserprofile
   useEffect(() => {
     if (params.userName) {
@@ -67,7 +67,7 @@ const Profile = () => {
               marginBottom: "7px",
             }}
           >
-          {profile[0].workPlace}
+            {profile[0].workPlace}
           </div>
 
           <div className={styles.location_container}>
@@ -83,8 +83,8 @@ const Profile = () => {
           </div>
 
           <div className={styles.follower}>
-            <h5>166 </h5> <span className={styles.focolor}>Following </span>
-            <h5>50 </h5> <span className={styles.focolor}>Followers </span>
+            <h5>0 </h5> <span className={styles.focolor}>Following </span>
+            <h5>0 </h5> <span className={styles.focolor}>Followers </span>
           </div>
         </div>
 
@@ -95,6 +95,11 @@ const Profile = () => {
           <button>Likes</button>
         </div>
 
+        <div>
+          {retweets.map((el) => (
+            <Post key={el.id} element={el} />
+          ))}
+        </div>
         <div>
           {posts.map((el) => (
             <Post key={el.id} element={el} />

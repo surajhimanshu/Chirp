@@ -91,7 +91,7 @@ const Post = ({ element }) => {
                     : toggleLikeAPI({
                         id: element.id,
                         obj: element,
-                        count: "-1",
+                        count: "0",
                       });
                   dispatch(likeAction);
                   setToggle((prev) => !prev);
