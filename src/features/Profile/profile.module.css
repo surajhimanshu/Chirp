@@ -2,8 +2,7 @@
     /* width: 450px; */
     margin: auto;
     position: relative;
-    /* border:0.5px solid rgb(220, 210, 210); */
-    /* box-shadow: 1px 1px #888888; */
+   
 }
 
 .backarrow {
@@ -55,7 +54,7 @@
 .location_container {
     display: flex;
     font-size: 0.85em;
-    margin-bottom: 4px;
+    /* margin-bottom: 4px; */
 }
 
 .joined {
@@ -70,8 +69,8 @@
     display: flex;
     gap: 5px;
     align-items: center;
-    margin-top: 7px;
-    margin-bottom: 20px;
+     /* margin-top: 7px; */
+    margin-bottom: 20px
 }
 
 .follower_cotainer {
@@ -102,18 +101,19 @@
     font-weight: 500;
 }
 
-.tweets_button_wrapper>button {
+.tweets_button_wrapper > button {
     cursor: pointer;
     color: rgb(83, 100, 113);
     border: none;
     outline: none;
     background-color: transparent;
     padding-bottom: 2px;
-
+    font-size: 1.05em;
 }
 
 .tweets_button_wrapper>button:focus {
-    color: rgb(5, 25, 40);
+    /* color: rgb(5, 25, 40); */
+    color: aliceblue;
     border-bottom: 3px solid rgb(3, 73, 126);
     font-weight: bold;
 }

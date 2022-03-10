@@ -83,8 +83,8 @@ const Profile = () => {
           </div>
 
           <div className={styles.follower}>
-            <h5>0 </h5> <span className={styles.focolor}>Following </span>
-            <h5>0 </h5> <span className={styles.focolor}>Followers </span>
+            <div>0 </div> <span className={styles.focolor}>Following </span>
+            <div>0 </div> <span className={styles.focolor}>Followers </span>
           </div>
         </div>
 
