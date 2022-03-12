@@ -151,6 +151,8 @@ const TweetBox = ({ visibility }) => {
     };
     const sendTweetAction = postPostAPI(payload);
     dispatch(sendTweetAction);
+    tweet.current.value = "";
+    handleRemove();
     navigate("/home");
   };
 
