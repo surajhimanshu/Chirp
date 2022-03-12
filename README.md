@@ -41,6 +41,25 @@ npm run start
 1. React Icons
 1. Styled Components
    <br/>
+   <br/>
+# Home
+<img src="./public/twitterHome.jpg">
+
+# Explore
+<img src="./public/twitterExplore.jpg">
+
+# Profile
+<img src="./public/twitterProfile.jpg">
+
+# Bookmarks
+<img src="./public/twitterBookmarks.jpg">
+
+# Settings
+<img src="./public/twitterSettings.jpg">
+
+---
+
+<br/>
 
 ## My Portfolio
 
