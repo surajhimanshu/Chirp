@@ -65,7 +65,7 @@ npm run start
 
 👤 **Suraj Himanshu**
 
-- Website: https://abhi-aro.herokuapp.com/
+- Website: https://suraj-himanshu-portfolio.herokuapp.com/
 - Github: [@surajhimanshu](https://github.com/surajhimanshu)
 <!-- - LinkedIn: [@suraj](https://www.linkedin.com/in/suraj-himanshu-9aa58215a/) -->
 
