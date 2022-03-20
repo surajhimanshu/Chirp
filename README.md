@@ -61,6 +61,15 @@ npm run start
 
 <br/>
 
+
+## Features ✨
+
+1. User can signup and login using email and password.
+1. User can post anything like: text,feeling,activities, photos, videos etc...
+3. User can toggle between likes
+4. User can search other user via searchbar
+5. User can change his password.
+
 ## My Portfolio
 
 👤 **Suraj Himanshu**
