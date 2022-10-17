@@ -93,7 +93,7 @@ npm run start
 👤 **Abhishek**
 
 - Website: [Portfolio](https://abhi-aro.tech/)
-- Github: [@PA-iscar](https://github.com/PA-iscar)
+- Github: [@abhi-aro](https://github.com/abhi-aro)
 - LinkedIn: [@abhi-aro](https://linkedin.com/in/abhi-aro)
 
 👤 **Sachin Gupta**
