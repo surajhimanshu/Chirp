@@ -45,7 +45,7 @@ In this project we have tried to clone the basic layout of <strong>Twitter</stro
 
 # How to run the project 📑
 
-### After cloning the project from https://github.com/PA-iscar/Chirp.git
+### After cloning the project from https://github.com/abhi-aro/Chirp.git
 
 ## Install using
 
