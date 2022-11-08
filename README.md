@@ -25,7 +25,7 @@ In this project we have tried to clone the basic layout of <strong>Twitter</stro
 - [Styled Components](https://styled-components.com/)
 - REST API for data on heroku https://chirp-database.herokuapp.com/
 
-### 🏠 [Homepage](https://twitter-chirp.herokuapp.com/)
+### 🏠 [Homepage](https://chirp-abhi-aro.vercel.app/)
 
 ### ✨ [Demo](https://masai-course.s3.ap-south-1.amazonaws.com/users/1421/submissions/261280/426957/b486505f2080d6b12df6e712a6da353f/video12821563428.mp4)
 
